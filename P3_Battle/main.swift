@@ -8,5 +8,12 @@
 
 import Foundation
 
-print("Hello, World!")
 
+let game = Game()
+game.start()
+
+//let team = Team(teamPlayer: 1)
+//team.createTeam()
+
+//let team = Team(teamPlayer: 2)
+//team.createTeam()
