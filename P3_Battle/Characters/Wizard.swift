@@ -9,7 +9,7 @@
 import Foundation
 
 class Wizard: Character {
-  init(name: String) {
-      super.init(type: "Wizard", life: 50, weapon: Scepter.init(), name: name)
+  init(name: String) { // filled: Bool
+    super.init(type: "Wizard", life: 50, weapon: Scepter.init(), name: name) // filled: filled
     }
 }

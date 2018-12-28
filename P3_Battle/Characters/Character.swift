@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class Character {
   
   //MARK: - Vars
@@ -15,7 +16,6 @@ class Character {
   var life: Int
   var weapon: Weapon
   let name: String
- // var points = [Int]()
 
   //MARK: - Init
   init(type: String, life: Int, weapon: Weapon, name: String) {
@@ -30,7 +30,7 @@ class Character {
     //self.life = self.life - damage
     self.life -= damage
     
-    // Si la vie est négatif, on la met tout simplement à 0 pour dire que le personnage est mort
+    // Si la vie est négative, on la met tout simplement à 0 pour dire que le personnage est mort
     if self.life < 0 {
       self.life = 0
     }
@@ -39,6 +39,7 @@ class Character {
   func attack(character: Character) {
     character.receive(damage: weapon.damage)
   }
+  
   
   
 //  // for test ====
@@ -112,3 +113,8 @@ class Character {
 //  } // Battle ??? --- EN COURS ----
 
 } // END Class Character
+
+
+
+
+

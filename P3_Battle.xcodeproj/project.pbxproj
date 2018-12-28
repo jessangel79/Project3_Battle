@@ -18,9 +18,11 @@
 		3A97A84A21CA471500ED1ED2 /* Mace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A84921CA471500ED1ED2 /* Mace.swift */; };
 		3A97A84C21CA472000ED1ED2 /* Axe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A84B21CA472000ED1ED2 /* Axe.swift */; };
 		3A97A84E21CA473300ED1ED2 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A84D21CA473300ED1ED2 /* Weapon.swift */; };
-		3A97A85021CA538000ED1ED2 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A84F21CA538000ED1ED2 /* Type.swift */; };
 		3A97A86821CBA5F000ED1ED2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A86721CBA5F000ED1ED2 /* Game.swift */; };
 		3A97A86F21CCE6B000ED1ED2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A86E21CCE6B000ED1ED2 /* Team.swift */; };
+		3AE2022B21D62D930025D042 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2022A21D62D930025D042 /* Test.swift */; };
+		3AE2022D21D657CD0025D042 /* TeamOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2022C21D657CD0025D042 /* TeamOld.swift */; };
+		3AE2022F21D668260025D042 /* CheckName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2022E21D668260025D042 /* CheckName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,9 +50,11 @@
 		3A97A84921CA471500ED1ED2 /* Mace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mace.swift; sourceTree = "<group>"; };
 		3A97A84B21CA472000ED1ED2 /* Axe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axe.swift; sourceTree = "<group>"; };
 		3A97A84D21CA473300ED1ED2 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
-		3A97A84F21CA538000ED1ED2 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		3A97A86721CBA5F000ED1ED2 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3A97A86E21CCE6B000ED1ED2 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		3AE2022A21D62D930025D042 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		3AE2022C21D657CD0025D042 /* TeamOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOld.swift; sourceTree = "<group>"; };
+		3AE2022E21D668260025D042 /* CheckName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +104,6 @@
 				3A97A83A21C94CD200ED1ED2 /* Wizard.swift */,
 				3A97A83E21C94D3C00ED1ED2 /* Giant.swift */,
 				3A97A83C21C94D2C00ED1ED2 /* Dwarf.swift */,
-				3A97A84F21CA538000ED1ED2 /* Type.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -121,6 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				3A97A86E21CCE6B000ED1ED2 /* Team.swift */,
+				3AE2022E21D668260025D042 /* CheckName.swift */,
+				3AE2022C21D657CD0025D042 /* TeamOld.swift */,
+				3AE2022A21D62D930025D042 /* Test.swift */,
 			);
 			path = Teams;
 			sourceTree = "<group>";
@@ -188,14 +194,16 @@
 				3A97A82D21C93FE900ED1ED2 /* main.swift in Sources */,
 				3A97A84821CA470700ED1ED2 /* Scepter.swift in Sources */,
 				3A97A84E21CA473300ED1ED2 /* Weapon.swift in Sources */,
+				3AE2022D21D657CD0025D042 /* TeamOld.swift in Sources */,
 				3A97A84A21CA471500ED1ED2 /* Mace.swift in Sources */,
-				3A97A85021CA538000ED1ED2 /* Type.swift in Sources */,
 				3A97A83D21C94D2C00ED1ED2 /* Dwarf.swift in Sources */,
+				3AE2022F21D668260025D042 /* CheckName.swift in Sources */,
 				3A97A84621CA46F800ED1ED2 /* Sword.swift in Sources */,
 				3A97A83921C94C6900ED1ED2 /* Fighter.swift in Sources */,
 				3A97A86F21CCE6B000ED1ED2 /* Team.swift in Sources */,
 				3A97A83721C94C3500ED1ED2 /* Character.swift in Sources */,
 				3A97A84C21CA472000ED1ED2 /* Axe.swift in Sources */,
+				3AE2022B21D62D930025D042 /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
