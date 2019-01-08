@@ -8,9 +8,10 @@
 
 import Foundation
 
+// class with Singleton to check the characters' names in order to have a unique name for each
 class CheckName {
   private var nameCharacters = [String]()
-  static let ext = CheckName()
+  static let sharedInstance = CheckName() // instantiate the singleton
   
   // check if the name has already been taken
   func checkCharacterName() -> String {
@@ -34,24 +35,8 @@ class CheckName {
   
 } // END class CheckName
 
+// create variable with the class "CheckName" to check if the name of the perso already exists
+// ### in the class Team ### //
+// let characterCheckName = CheckName.sharedInstance.checkCharacterName()
 
-//repeat {
-//  print("Name of character :")
-//  if let data = readLine() {
-//    characterName = data
-//  }
-//} while characterName == ""
-//
-//// verification if the character’s name already exists
-//var filled = false
-//characters
-//  .compactMap{$0}
-//  .forEach { (characters:Character) in
-//    if characters.name == characterName {
-//      print("The name already exists !")
-//      return filled = true
-//    }
-//    else {
-//      return print("The name is available")
-//    }
-//}
+

@@ -23,6 +23,7 @@
 		3AE2022B21D62D930025D042 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2022A21D62D930025D042 /* Test.swift */; };
 		3AE2022D21D657CD0025D042 /* TeamOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2022C21D657CD0025D042 /* TeamOld.swift */; };
 		3AE2022F21D668260025D042 /* CheckName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2022E21D668260025D042 /* CheckName.swift */; };
+		3AE69A1121DF6B7C0097BCD1 /* TeamFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69A1021DF6B7C0097BCD1 /* TeamFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +56,7 @@
 		3AE2022A21D62D930025D042 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		3AE2022C21D657CD0025D042 /* TeamOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOld.swift; sourceTree = "<group>"; };
 		3AE2022E21D668260025D042 /* CheckName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckName.swift; sourceTree = "<group>"; };
+		3AE69A1021DF6B7C0097BCD1 /* TeamFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				3A97A86E21CCE6B000ED1ED2 /* Team.swift */,
+				3AE69A1021DF6B7C0097BCD1 /* TeamFactory.swift */,
 				3AE2022E21D668260025D042 /* CheckName.swift */,
 				3AE2022C21D657CD0025D042 /* TeamOld.swift */,
 				3AE2022A21D62D930025D042 /* Test.swift */,
@@ -193,6 +196,7 @@
 				3A97A83F21C94D3C00ED1ED2 /* Giant.swift in Sources */,
 				3A97A82D21C93FE900ED1ED2 /* main.swift in Sources */,
 				3A97A84821CA470700ED1ED2 /* Scepter.swift in Sources */,
+				3AE69A1121DF6B7C0097BCD1 /* TeamFactory.swift in Sources */,
 				3A97A84E21CA473300ED1ED2 /* Weapon.swift in Sources */,
 				3AE2022D21D657CD0025D042 /* TeamOld.swift in Sources */,
 				3A97A84A21CA471500ED1ED2 /* Mace.swift in Sources */,

@@ -9,12 +9,17 @@
 import Foundation
 
 class Weapon {
-    //MARK: - Vars
-    let damage: Int
-    //MARK: - Init
-    init(damage: Int) {
-      self.damage = damage
-    }
+  //MARK: - Vars
+  let damage: Int
+  let heal: Int
+  let nameWeapon: String
+  
+  //MARK: - Init
+  init(damage: Int, heal: Int, nameWeapon: String) {
+    self.damage = damage
+    self.heal = heal
+    self.nameWeapon = nameWeapon
+  }
   
   //MARK: - Methodes
 

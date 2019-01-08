@@ -40,24 +40,17 @@ class Character {
     character.receive(damage: weapon.damage)
   }
   
-  
-  
-//  // for test ====
-//  func upgradeWeapon() {
-//    self.weapon.damage += 5
-//  }
-//  // for test ====
-
   // Display the description of our character on the screen
   func display() {
     print("Name : \(name)")
     print("Type : \(type)")
     print("Life : \(life)")
+    print("Weapon : \(weapon.nameWeapon)")
     print("Damages of his weapon : \(weapon.damage)")
     print(" ")
   }
   
-  
+
 //  // Battle ??? --- EN COURS ----
 //  func play(against character: Character) {
 //    var userChoice: Int
@@ -115,6 +108,14 @@ class Character {
 } // END Class Character
 
 
+
+// ##### ##### TEST ##### ##### //
+
+//  // for test ====
+//  func upgradeWeapon() {
+//    self.weapon.damage += 5
+//  }
+//  // for test ====
 
 
 

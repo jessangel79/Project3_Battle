@@ -13,33 +13,20 @@ class Game {
   //MARK: - Vars
   private var arrayTeams = [Team]() // with mentor // array gathering the teams
   private var endlessLoop = true // let si false
+  //var arrayOfTeams: [Team]
+  // var arrayOfTeams = TeamFactory()
+  // var arrayOfTeams: [TeamFactory]
   
   //MARK: - Init
-
-  //MARK: - Methodes
-//  // Fonction permettant de demander à l'utilisateur d'entrer un nombre entier
-  func input() -> Int {
-    let strData = readLine();
-
-    return Int(strData!)!
-  }
-//  // autre fonction comme input
-//  func insert() {
-//    var userChoice = 0
-//    repeat {
-//      if let data = readLine() {
-//        if let dataToInt = Int(data) {
-//          userChoice = dataToInt
-//        }
-//      }
-//    } while userChoice != 1 && userChoice != 2
+//  init(arrayOfTeams: Team) {
+//    self.arrayOfTeams = [arrayOfTeams]
 //  }
-  
+  //MARK: - Methodes
+
   // function for start game
   func start() {
     var userChoice = 0
     repeat {
-      
       welcome()
       repeat {
         if let data = readLine() {
@@ -51,8 +38,9 @@ class Game {
       
       switch userChoice {
       case 1:
-        print("New Game !!! - Creation of the 2 teams !")
-        createTwoTeams()
+        print("New Game !!! - Creation of the teams !")
+        let createTheTeams = TeamFactory() //(nameTeam: nameTeam)
+        createTheTeams.createTeams()
       case 2:
         print("Battle")
         battle() // fight ...
@@ -61,13 +49,14 @@ class Game {
         endlessLoop = false
         //          endOfGame()
       default:
-        break
+        print("Erreur - Choose a number between 1 and 3.")
+        //break
       }
       userChoice = 0
     } while endlessLoop
   }
   
-  // Interface d'accueil
+  // Interface to welcome
   private func welcome() {
     print("")
     print("=========================================="
@@ -79,119 +68,87 @@ class Game {
       + "\n==========================================")
   }
   
-  // loop to create two teams
-  private func createTwoTeams() {
-    for i in 0..<2 {
-      print("")
-      print("==================================")
-      print("Enter the name of player \(i+1) : ")
-      print("==================================")
-      let team = createTeam()
-      arrayTeams.append(team)
-    }
-  }
-  
-  // function to create a team and complete the array "arrayTeams"
-  private func createTeam() -> Team {
-    var nameTeam = ""
-    repeat {
-      if let data = readLine() {
-            nameTeam = data
-      }
-    } while nameTeam == ""
-    
-    let team = Team(nameTeam: nameTeam)
-    team.createTeamCharacter()
-    team.displayTeamCharacter()
-    return team
-  }
-  
-//  private func newGame() {
-//    var userChoice = 0
+//  // loop to create two teams
+//  private func createTwoTeams() {
+//    for i in 0..<2 {
+//      print("")
+//      print("==================================")
+//      print("Enter the name of player \(i+1) : ")
+//      print("==================================")
+//      let team = createTeam()
+//      arrayTeams.append(team)
+//    }
+//  }
+//
+//  // function to create a team and complete the array "arrayTeams"
+//  private func createTeam() -> TeamFactory {
+//    var nameTeam = ""
 //    repeat {
 //      if let data = readLine() {
-//        if let dataToInt = Int(data) {
-//          userChoice = dataToInt
-//        }
+//            nameTeam = data
 //      }
-//    } while userChoice != 1 && userChoice != 2
-    
+//    } while nameTeam == ""
 //
-//        repeat {
-//          print("Name of player :")
-//          if let data = readLine() {
-//            choiceNamePlayer = data
-//          }
-//        } while choiceNamePlayer == ""
-    
-//        switch userChoice {
-//        case 1:
-////          let team1 = Team(teamPlayer: 1, namePlayer: namePlayer)
-////          print("Player \(team1.teamPlayer): \(team1.namePlayer)")
-////          team1.createTeam()
-////          team1.displayTeam()
-//            print("choice 1")
-//        case 2:
-////          let team2 = Team(teamPlayer: 2, namePlayer: namePlayer)
-////          print("Player \(team2.teamPlayer): \(team2.namePlayer)")
-////          team2.createTeam()
-////          team2.displayTeam()
-////            start()
-//          print("choice 2")
-//        default:
-//          break
-//        }
+//    let team = TeamFactory(nameTeam: nameTeam)
+//    team.createTeamCharacter()
+//    //team.displayTeamCharacter()
+//    return team
 //  }
   
+  // Interface to display the choices to the battle
+  private func listChoiceBattle() {
+    print("======================================================")
+    print("What action to do ?")
+    print("------------------------------------------------------")
+    print("1. Display of teams and life points of the characters.")
+    print("2. Report last action.")
+    print("3. Choice of the character to play.")
+    print("4. Choice of the character’s target.")
+    print("5. Action of the character.")
+    //      print("6. Random arrival of a treasure chest.")
+    print("======================================================")
+  }
+
   // Battle ??? --- EN COURS ----
   private func battle() {
-    var userChoice: Int
-    
+    var userChoice = 0
     // On affiche d'abord les caractéristiques du personnage qui doit jouer
     //self.display()
     
     // On boucle tant qu'il n'a pas choisi une des options
     repeat {
-      print("======================================================")
-      print("What action to do ?")
-      print("1. Display of teams and life points of the characters.")
-      print("2. Report last action.")
-      print("3. Choice of the character to play.")
-      print("4. Choice of the character’s target.")
-      print("5. Action of the character.")
-//      print("6. Random arrival of a treasure chest.")
-      print("==================================")
-      //let gameStart = Game()
-      //userChoice = gameStart.input()
-      userChoice = input()
-      print()
+      listChoiceBattle()
+        if let data = readLine() {
+          if let dataToInt = Int(data) {
+            userChoice = dataToInt
+          }
+        }
     } while userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4 && userChoice != 5
     
     // On réalise l'action demandée
     switch userChoice {
       case 1: // Display of teams and life points of the characters
-        print("Choice 2")
+        print("Choice 1")
+//        let arrayOfTeams = [Team]()
+        for character in arrayTeams {
+          character.displayTeamCharacter()
+        }
       case 2: // Report last action
         print("Choice 2")
-        //      let fighter = Fighter(name: characterName)
-      //      characters.append(fighter)
+//        for character in arrayTeams {
+//          character.displayTeamCharacterOther()
+//        }
       case 3: // Choice of the character to play
         print("choice 3")
-        //      let wizard = Wizard(name: characterName)
-      //      characters.append(wizard)
       case 4: // Choice of the character’s target
         print("choice 4")
-        //      let giant = Giant(name: characterName)
-      //      characters.append(giant)
       case 5: // Action of the character
         print("choice 5")
-        //      let dwarf = Dwarf(name: characterName)
-      //      characters.append(dwarf)
-      
   //    case 6: // Ramdom arrival of a treasure chest containing a random weapon
   //      print("choice 6")
       default:
-        break
+        print("Erreur - Choose a number between 1 and 5.")
+        //break
     }
 
 //    if userChoice == 1 {
@@ -200,6 +157,6 @@ class Game {
 ////      self.upgradeWeapon() // for test ====
 ////    }
  } // Battle ??? --- EN COURS ----
-  
+
   
 } // END Class Game
