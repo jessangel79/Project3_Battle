@@ -11,5 +11,5 @@ import Foundation
 class Giant: Character {
   init(name: String) {
     super.init(type: "Giant", life: 200, weapon: Mace.init(), name: name)
-    }
+  }
 }

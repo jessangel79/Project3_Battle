@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class Character {
   
   //MARK: - Vars
@@ -41,12 +40,8 @@ class Character {
   }
   
   // Display the description of our character on the screen
-  func display() {
-    print("Name : \(name)")
-    print("Type : \(type)")
-    print("Life : \(life)")
-    print("Weapon : \(weapon.nameWeapon)")
-    print("Damages of his weapon : \(weapon.damage)")
+  func display(index: Int) {
+    print("\(index) Name : \(name)" + "Type : \(type)" + "Life : \(life)" + "Weapon : \(weapon.nameWeapon)" + "Damages of his weapon : \(weapon.damage)")
     print(" ")
   }
   

@@ -13,14 +13,9 @@ class Game {
   //MARK: - Vars
   private var arrayTeams = [Team]() // with mentor // array gathering the teams
   private var endlessLoop = true // let si false
-  //var arrayOfTeams: [Team]
-  // var arrayOfTeams = TeamFactory()
-  // var arrayOfTeams: [TeamFactory]
-  
+
   //MARK: - Init
-//  init(arrayOfTeams: Team) {
-//    self.arrayOfTeams = [arrayOfTeams]
-//  }
+
   //MARK: - Methodes
 
   // function for start game
@@ -39,8 +34,9 @@ class Game {
       switch userChoice {
       case 1:
         print("New Game !!! - Creation of the teams !")
-        let createTheTeams = TeamFactory() //(nameTeam: nameTeam)
-        createTheTeams.createTeams()
+        let teamFactory = TeamFactory() //(nameTeam: "", namePlayer: "")
+        teamFactory.createTeams()
+        arrayTeams = teamFactory.arrayTeams
       case 2:
         print("Battle")
         battle() // fight ...
@@ -68,32 +64,6 @@ class Game {
       + "\n==========================================")
   }
   
-//  // loop to create two teams
-//  private func createTwoTeams() {
-//    for i in 0..<2 {
-//      print("")
-//      print("==================================")
-//      print("Enter the name of player \(i+1) : ")
-//      print("==================================")
-//      let team = createTeam()
-//      arrayTeams.append(team)
-//    }
-//  }
-//
-//  // function to create a team and complete the array "arrayTeams"
-//  private func createTeam() -> TeamFactory {
-//    var nameTeam = ""
-//    repeat {
-//      if let data = readLine() {
-//            nameTeam = data
-//      }
-//    } while nameTeam == ""
-//
-//    let team = TeamFactory(nameTeam: nameTeam)
-//    team.createTeamCharacter()
-//    //team.displayTeamCharacter()
-//    return team
-//  }
   
   // Interface to display the choices to the battle
   private func listChoiceBattle() {
@@ -130,9 +100,16 @@ class Game {
       case 1: // Display of teams and life points of the characters
         print("Choice 1")
 //        let arrayOfTeams = [Team]()
-        for character in arrayTeams {
-          character.displayTeamCharacter()
-        }
+//        for character in arrayTeams {
+//          character.displayTeamCharacter()
+//        }
+        print("Test list array 'arrayTeam'")
+        let teamDisplay = Team()//= TeamFactory(nameTeam: "", namePlayer: "")
+        teamDisplay.displayTeamCharacter()
+//        let team = TeamFactory(nameTeam: "", namePlayer: "")
+//        team.displayTeamCharacter()
+//        let team = Team()
+//        team.displayTeamCharacter()
       case 2: // Report last action
         print("Choice 2")
 //        for character in arrayTeams {

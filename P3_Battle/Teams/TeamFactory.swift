@@ -11,14 +11,15 @@ import Foundation
 class TeamFactory {
   
   //MARK: - Vars
-  var team = [String]()
-  var arrayTeams = [TeamFactory]()
-  var characters = [Character]()
-  //let nameTeam: String
-  
-  //MARK: - Init
-//  init(nameTeam: String) {
+  var checkName = [String]()
+  var arrayTeams = [Team]()
+//  var nameTeam: String
+//  var namePlayer: String
+
+//  MARK: - Init
+//  init(nameTeam: String, namePlayer: String) {
 //    self.nameTeam = nameTeam
+//    self.namePlayer = namePlayer
 //  }
   
   // MARK: - Methodes
@@ -35,7 +36,7 @@ class TeamFactory {
   }
   
   // function to choice a character
-  private func createCharacter() {
+  private func createCharacter() -> Character? {
     var userChoice = 0
     listCharactersMenu()
     
@@ -47,58 +48,66 @@ class TeamFactory {
       }
     } while userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4
     
-    // check if the name of the character already exists
-    var characterName = ""
-    repeat {
-      print("Choose the name of your character: ")
-      if let data = readLine() {
-        characterName = data
-        if team.contains(characterName) { // check if the name already exists
-          print("The name: '\(characterName)' already exists !")
-          print("Please enter a new name.")
-          characterName = ""
-        } else {
-          print("The name: '\(characterName)' is available.")
-          team.append(characterName)
-        }
-      }
-    } while characterName == ""
     
     switch userChoice {
     case 1: // fighter
-      let fighter = Fighter(name: characterName)
+      let fighter = Fighter(name: uniqueCharacterName())
       print("Added a fighter to the team.")
-      characters.append(fighter)
-      fighter.display()
+      return fighter
     case 2: // wizard
-      let wizard = Wizard(name: characterName)
+      let wizard = Wizard(name: uniqueCharacterName())
       print("Added a wizard to the team.")
-      characters.append(wizard)
-      wizard.display()
+      return wizard
     case 3: // giant
-      let giant = Giant(name: characterName)
+      let giant = Giant(name: uniqueCharacterName())
       print("Added a giant to the team.")
-      characters.append(giant)
-      giant.display()
+      return giant
     case 4: // dwarf
-      let dwarf = Dwarf(name: characterName)
+      let dwarf = Dwarf(name: uniqueCharacterName())
       print("Added a dwarf to the team.")
-      characters.append(dwarf)
-      dwarf.display()
+      return dwarf
     default:
-      print("Erreur - Choose a number between 1 and 4.")
-      //break
+      return nil
     }
   }
   
   // loop to create the team with 3 characters
-  func createCharacters() {
+  func createCharacters() -> [Character]? {
+    var characters = [Character]()
     for _ in 0..<3 {
-      createCharacter()
+      guard let character = createCharacter() else { return nil }
+      characters.append(character)
+      // test print
+      print("Test print in createCharacterS()")
+      print("display check name : \(checkName)")
     }
-    // afficher les équipes à chaque boucle
-//    let teamDisplay = Team(arrayOfTeams: arrayTeams)
-//    teamDisplay.displayTeamCharacter()
+    return characters
+  }
+  
+  // function to create a team and complete the array "arrayTeams"
+  private func createTeam() -> Team? {
+    //var nameTeam = ""
+    //    print("")
+    //    print("=========================")
+    //    print("Enter the name of team : ")
+    //    print("=========================")
+    //    repeat {
+    //      if let data = readLine() {
+    //        nameTeam = data
+    //      }
+    //    } while nameTeam == ""
+    
+    let team = Team()
+    guard let characters = createCharacters() else { return nil }
+    team.characters = characters
+    return team
+    // version avec if let ###
+    //    if let characters = createCharacters() {
+    //    team.characters = characters
+    //    return team
+    //    } else {
+    //      return nil
+    //    }
   }
   
   // loop to create two teams
@@ -117,30 +126,51 @@ class TeamFactory {
     } while numberOfTeam == 0
     
     for i in 0..<numberOfTeam {
+      var namePlayer = ""
       print("")
       print("==================================")
       print("Enter the name of player \(i+1) : ")
       print("==================================")
-      let teams = createTeam()
-      arrayTeams.append(teams)
+      repeat {
+        if let data = readLine() {
+          namePlayer = data
+        }
+      } while namePlayer == ""
+      print("------------------------------")
+      print("Player \(i+1) : \(namePlayer)")
+      
+
+      // with mentor
+      for i in 0..<numberOfTeam {
+        print("-----------------------------")
+        print("Creation of the team N°\(i+1)")
+        print("-----------------------------")
+        guard let team = createTeam() else { return }
+        arrayTeams.append(team)
+      }
     }
   }
   
-  // function to create a team and complete the array "arrayTeams"
-  private func createTeam() -> TeamFactory {
-    var nameTeam = ""
-    // print("Enter the name of teams")
+  // check if the name of the character already exists
+  func uniqueCharacterName() -> String {
+    print("Choose the name of your character :")
+    var characterName = ""
     repeat {
       if let data = readLine() {
-        nameTeam = data
+        characterName = data
+        if checkName.contains(characterName) {
+          print("This character name is already taken") // a supp ###
+          print("The name: '\(characterName)' already exists !")
+          print("Please enter a new name.")
+          characterName = ""
+        } else {
+          print("The name: '\(characterName)' is available.") // a supp ###
+          checkName.append(characterName)
+        }
       }
-    } while nameTeam == ""
-    
-    let team = TeamFactory() // (nameTeam: nameTeam)
-    team.createCharacters()
-    // team.displayTeamCharacter()
-    return team
+    } while characterName == ""
+    return characterName
   }
-  
+
   
 } // END class TeamFactory
