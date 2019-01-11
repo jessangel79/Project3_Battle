@@ -95,7 +95,7 @@ class Game {
       case 1: // Display of teams and life points of the characters
         listTeams()
       case 2: // Report last action
-        print("Choice 2")
+        reportLastAction()
       case 3: // Choice of the character to play
         print("choice 3")
       case 4: // Choice of the character’s target
@@ -128,6 +128,16 @@ class Game {
     }
   }
   
+  // display of last action report 
+  private func reportLastAction() {
+    for i in 0..<arrayTeams.count {
+      print("==========================================")
+      print("Report of last action to the team \(i+1) :")
+      print("------------------------------------------")
+      let team = arrayTeams[i]
+      team.displayLastAction()
+    }
+  }
 
   
 } // END Class Game

@@ -52,20 +52,27 @@ class Character {
 //    
 //    // On affiche d'abord les caractéristiques du personnage qui doit jouer
 //    //self.display()
-//    
-//    // On boucle tant qu'il n'a pas choisi un de ces deux solutions
 //    repeat {
-//      print("What action to do ?")
-//      print("1. Display of teams and life points of the characters.")
-//      print("2. Report last action.")
-//      print("3. Choice of the character to play.")
-//      print("4. Random arrival of a treasure chest.")
-//      print("5. Choice of the character’s target.")
-//      print("6. Action of the character.")
-//      let gameStart = Game()
-//      userChoice = gameStart.input()
-//      print()
-//    } while userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4 && userChoice != 5 && userChoice != 6
+////      listChoiceBattle()
+//      if let data = readLine() {
+//        if let dataToInt = Int(data) {
+//          userChoice = dataToInt
+//        }
+//      }
+//    } while userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4 && userChoice != 5
+//    // On boucle tant qu'il n'a pas choisi un de ces deux solutions
+////    repeat {
+////      print("What action to do ?")
+////      print("1. Display of teams and life points of the characters.")
+////      print("2. Report last action.")
+////      print("3. Choice of the character to play.")
+////      print("4. Random arrival of a treasure chest.")
+////      print("5. Choice of the character’s target.")
+////      print("6. Action of the character.")
+////      let gameStart = Game()
+////      userChoice = gameStart.input()
+////      print()
+////    } while userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4 && userChoice != 5 && userChoice != 6
 //    
 //      // On réalise l'action demandée
 //      switch userChoice {
