@@ -32,14 +32,12 @@ class Game {
       } while userChoice != 1 && userChoice != 2 && userChoice != 3
       
       switch userChoice {
-      case 1:
-        print("New Game !!! - Creation of the teams !")
-        let teamFactory = TeamFactory() //(nameTeam: "", namePlayer: "")
+      case 1: // New Game !!! - Creation of the teams
+        let teamFactory = TeamFactory()
         teamFactory.createTeams()
-        arrayTeams = teamFactory.arrayTeams
-      case 2:
-        print("Battle")
-        battle() // fight ...
+        arrayTeams = teamFactory.arrayTeams // import arrayTeams of class TeamFactory
+      case 2: // fight ...
+        battle()
       case 3:
         print("End of Game")
         endlessLoop = false
@@ -55,37 +53,35 @@ class Game {
   // Interface to welcome
   private func welcome() {
     print("")
-    print("=========================================="
-      + "\n Battle of warriors "
-      + "\n------------------------------------------"
-      + "\n1 - Start Game: Creation of the 2 teams ! "
+    print("========================================================"
+      + "\n Battle of warriors - Choose a number between 1 and 3 : "
+      + "\n--------------------------------------------------------"
+      + "\n1 - Start Game: Creation of the teams ! "
       + "\n2 - Battle "
       + "\n3 - End of Game "
-      + "\n==========================================")
+      + "\n========================================================")
   }
   
   
   // Interface to display the choices to the battle
   private func listChoiceBattle() {
-    print("======================================================")
-    print("What action to do ?")
-    print("------------------------------------------------------")
+    print("========================================================")
+    print("What action to do ? - Choose a number between 1 and 5 : ")
+    print("--------------------------------------------------------")
     print("1. Display of teams and life points of the characters.")
     print("2. Report last action.")
     print("3. Choice of the character to play.")
     print("4. Choice of the character’s target.")
     print("5. Action of the character.")
     //      print("6. Random arrival of a treasure chest.")
-    print("======================================================")
+    print("========================================================")
   }
 
   // Battle ??? --- EN COURS ----
   private func battle() {
     var userChoice = 0
-    // On affiche d'abord les caractéristiques du personnage qui doit jouer
-    //self.display()
     
-    // On boucle tant qu'il n'a pas choisi une des options
+    // loop until one of the options is chosen
     repeat {
       listChoiceBattle()
         if let data = readLine() {
@@ -95,26 +91,11 @@ class Game {
         }
     } while userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4 && userChoice != 5
     
-    // On réalise l'action demandée
     switch userChoice {
       case 1: // Display of teams and life points of the characters
-        print("Choice 1")
-//        let arrayOfTeams = [Team]()
-//        for character in arrayTeams {
-//          character.displayTeamCharacter()
-//        }
-        print("Test list array 'arrayTeam'")
-        let teamDisplay = Team()//= TeamFactory(nameTeam: "", namePlayer: "")
-        teamDisplay.displayTeamCharacter()
-//        let team = TeamFactory(nameTeam: "", namePlayer: "")
-//        team.displayTeamCharacter()
-//        let team = Team()
-//        team.displayTeamCharacter()
+        listTeams()
       case 2: // Report last action
         print("Choice 2")
-//        for character in arrayTeams {
-//          character.displayTeamCharacterOther()
-//        }
       case 3: // Choice of the character to play
         print("choice 3")
       case 4: // Choice of the character’s target
@@ -127,13 +108,26 @@ class Game {
         print("Erreur - Choose a number between 1 and 5.")
         //break
     }
-
+    
 //    if userChoice == 1 {
 //      self.attack(character: character)
 //    } //else {
 ////      self.upgradeWeapon() // for test ====
 ////    }
+    
  } // Battle ??? --- EN COURS ----
+
+  // display the teams and life points of the characters
+  private func listTeams() {
+    for i in 0..<arrayTeams.count {
+      print("=======================")
+      print("List of the team \(i+1)")
+      print("-----------------------")
+      let team = arrayTeams[i]
+      team.displayTeam()
+    }
+  }
+  
 
   
 } // END Class Game

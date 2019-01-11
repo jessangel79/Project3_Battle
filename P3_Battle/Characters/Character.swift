@@ -41,7 +41,7 @@ class Character {
   
   // Display the description of our character on the screen
   func display(index: Int) {
-    print("\(index) Name : \(name)" + "Type : \(type)" + "Life : \(life)" + "Weapon : \(weapon.nameWeapon)" + "Damages of his weapon : \(weapon.damage)")
+    print("\(index) - Name : \(name) - " + "Type : \(type) - " + "Life : \(life) - " + "Weapon : \(weapon.nameWeapon) - " + "Damages of his weapon : \(weapon.damage)")
     print(" ")
   }
   

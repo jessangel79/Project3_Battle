@@ -11,22 +11,20 @@ import Foundation
 class TeamFactory {
   
   //MARK: - Vars
-  var checkName = [String]()
-  var arrayTeams = [Team]()
+  private var checkName = [String]() // with mentor
+  var arrayTeams = [Team]() // with mentor
 //  var nameTeam: String
-//  var namePlayer: String
 
 //  MARK: - Init
-//  init(nameTeam: String, namePlayer: String) {
+//  init(nameTeam: String) {
 //    self.nameTeam = nameTeam
-//    self.namePlayer = namePlayer
 //  }
   
   // MARK: - Methodes
   private func listCharactersMenu() {
     print("")
     print("=========================================================")
-    print("Create your team - Choice 3 characters between 1 and 4: ")
+    print("Create your team - Choose 3 characters between 1 and 4 : ")
     print("---------------------------------------------------------")
     print("1 - Fighter - Life: 100 - Damage: 10"
       + "\n2 - Wizard  - Life: 50  - Heal: 20 "
@@ -71,20 +69,17 @@ class TeamFactory {
     }
   }
   
-  // loop to create the team with 3 characters
-  func createCharacters() -> [Character]? {
+  // Create the team with 3 characters
+  private func createCharacters() -> [Character]? {
     var characters = [Character]()
     for _ in 0..<3 {
       guard let character = createCharacter() else { return nil }
       characters.append(character)
-      // test print
-      print("Test print in createCharacterS()")
-      print("display check name : \(checkName)")
     }
     return characters
   }
   
-  // function to create a team and complete the array "arrayTeams"
+  // Create a team
   private func createTeam() -> Team? {
     //var nameTeam = ""
     //    print("")
@@ -99,72 +94,63 @@ class TeamFactory {
     
     let team = Team()
     guard let characters = createCharacters() else { return nil }
-    team.characters = characters
+    team.characters = characters // import array 'characters' of class Team
     return team
-    // version avec if let ###
-    //    if let characters = createCharacters() {
-    //    team.characters = characters
-    //    return team
-    //    } else {
-    //      return nil
-    //    }
-  }
+    }
   
-  // loop to create two teams
+  // Create several teams
   func createTeams() {
-    var numberOfTeam = 0
+    var numberOfTeams = 0
     print("")
     print("============================")
+    print("@@@@    New Game !!!    @@@@")
+    print("----------------------------")
     print("Enter the number of teams : ")
     print("============================")
     repeat {
       if let data = readLine() {
         if let dataToInt = Int(data) {
-          numberOfTeam = dataToInt
+          numberOfTeams = dataToInt
         }
       }
-    } while numberOfTeam == 0
+    } while numberOfTeams == 0
     
-    for i in 0..<numberOfTeam {
+    // Loop for the creation of teams as much as the player has chosen - // with mentor
+    for i in 0..<numberOfTeams {
+      // Choose the name of player
       var namePlayer = ""
       print("")
-      print("==================================")
+      print("=============================")
       print("Enter the name of player \(i+1) : ")
-      print("==================================")
+      print("=============================")
       repeat {
         if let data = readLine() {
           namePlayer = data
         }
       } while namePlayer == ""
-      print("------------------------------")
-      print("Player \(i+1) : \(namePlayer)")
       
-
-      // with mentor
-      for i in 0..<numberOfTeam {
-        print("-----------------------------")
-        print("Creation of the team N°\(i+1)")
-        print("-----------------------------")
-        guard let team = createTeam() else { return }
-        arrayTeams.append(team)
-      }
+      // Creation of teams
+      print("-----------------------------")
+      print("Player \(i+1) : \(namePlayer)")
+      print("Creation of the team N°\(i+1)")
+      print("-----------------------------")
+      guard let team = createTeam() else { return }
+      arrayTeams.append(team)
     }
   }
   
   // check if the name of the character already exists
-  func uniqueCharacterName() -> String {
+  private func uniqueCharacterName() -> String {
     print("Choose the name of your character :")
     var characterName = ""
     repeat {
       if let data = readLine() {
         characterName = data
         if checkName.contains(characterName) {
-          print("This character name is already taken") // a supp ###
           print("The name: '\(characterName)' already exists !")
           print("Please enter a new name.")
           characterName = ""
         } else {
-          print("The name: '\(characterName)' is available.") // a supp ###
           checkName.append(characterName)
         }
       }
