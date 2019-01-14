@@ -35,10 +35,10 @@ class Team {
       let character = characters[i]
       if character.life >= 1 {
         if character is Wizard {
-          print("\(i+1) - The \(character.type) \"\(character.name)\" has \(character.life) of life and can heal \(character.weapon.heal) life's points.")
+          print("\(i+1) - The \(character.type) \"\(character.name)\" has \(character.life) points of life and can heal \(character.weapon.heal) life's points.")
           print(" ")
         } else if character is Fighter || character is Dwarf || character is Giant {
-          print("\(i+1) - The \(character.type) \"\(character.name)\" has \(character.life) of life and \(character.weapon.damage) attack's points.")
+          print("\(i+1) - The \(character.type) \"\(character.name)\" has \(character.life) points of life and \(character.weapon.damage) attack's points.")
           print(" ")
         }
       } else {
