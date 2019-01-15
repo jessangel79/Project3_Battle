@@ -12,8 +12,8 @@ class Wizard: Character {
   
   //MARK: - Inits
   init(name: String) {
-    super.init(type: "Wizard", life: 50, weapon: Scepter.init(), name: name)    
-  }
+    super.init(type: "Wizard", life: 30, weapon: Scepter.init(), name: name)    
+  } // life: 70
   
   //MARK: - Methodes
   func heal(character: Character) {
@@ -25,16 +25,16 @@ class Wizard: Character {
           print("He has recovered the totality of his life points.")
         }
       } else {
-        print("Your \(character.type), \"\(character.name)\" is dead and cannot be resurrected !")
+        print("Your \(character.type), \"\(character.name)\" is already dead and cannot be resurrected !")
       }
     } else {
-      print("Sorry you're dead and you cannot heal !")
+      print("Sorry your \(type) \"\(name)\" is already dead and you cannot heal !")
     }
   }
   
   
   override func attack(character: Character) {
-    print("The mage can't attack but only to heal !")
+    print("The \(type) \"\(name)\" can't attack but only to heal !")
   }
 }
 

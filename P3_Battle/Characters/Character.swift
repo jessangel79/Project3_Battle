@@ -42,22 +42,25 @@ class Character {
         print("----------------------------------------------------------------------------------------")
         print("The \(character.type) \"\(character.name)\" received \(weapon.damage) points of damage by the \(weapon.nameWeapon) of your \(type) \"\(name)\" !")
         print("--------------------------------------------------------------------")
+        if character.life <= 0 {
+           print("The \(character.type) \"\(character.name)\" is dead !!! ")
+        }
       } else {
-        print("--------------------------------------------------------------")
+        print("--------------------------------------------------------")
         print("The \(character.type) \"\(character.name)\" is already dead !")
-        print("--------------------------------------------------------------")
+        print("--------------------------------------------------------")
       }
     } else {
-      print("-----------------------------------------")
-      print("Sorry you're dead and you cannot attack !")
-      print("-----------------------------------------")
+      print("----------------------------------------------------------------------------")
+      print("Sorry the \(type) \"\(name)\" is already dead and cannot attack the \(character.type) \"\(character.name)\" !")
+      print("----------------------------------------------------------------------------")
     }
     
   }
   
   // Display the description of our character on the screen
   func display(index: Int) {
-    print("\(index) - The \(type) \"\(name)\" has \(life) life's points and \(weapon.damage) attack's points or can heal \(weapon.heal) life's points with the \(weapon.nameWeapon).")
+    print("\(index) - The \(type) \"\(name)\" -- Points of life : \(life) -- The weapon : \(weapon.nameWeapon) -- Points of damage : \(weapon.damage) -- Points for healing : \(weapon.heal).")
     print(" ")
   }
 

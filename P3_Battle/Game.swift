@@ -66,11 +66,11 @@ class Game {
   // Interface to display the choices to the game
   private func listChoiceGame() {
     print("========================================================")
-    print("What action to do ? - Choose a number between 1 and 5 : ")
+    print("What action to do ? - Choose a number between 1 and 3 : ")
     print("--------------------------------------------------------")
     print("1. Display of teams and life points of the characters ")
-    print("2. Report last action ")
-    print("3. Start the battle ! ")
+    print("2. Start the battle ! ")
+    print("3. End of Game : Show the winner ! ")
 //    print("3. Choice of the character to play.")
 //    print("4. Choice of the character’s target.")
 //    print("5. Action of the character.")
@@ -91,29 +91,22 @@ class Game {
             userChoice = dataToInt
           }
         }
-    } while userChoice != 1 && userChoice != 2 && userChoice != 3 // && userChoice != 4 && userChoice != 5
+    } while userChoice != 1 && userChoice != 2 && userChoice != 3
     
     switch userChoice {
-      case 1: // Display of teams and life points of the characters
-        listTeams()
-      case 2: // Report last action
-        reportLastAction()
-      case 3: // Start the battle
-        battle()
-        print("choice 3")
-//      case 3: // Choice of the character to play
-//        print("choice 3")
-//      case 4: // Choice of the character’s target
-//        print("choice 4")
-//      case 5: // Action of the character
-//        print("choice 5")
-  //    case 6: // Ramdom arrival of a treasure chest containing a random weapon
-  //      print("choice 6")
-      default:
-        print("Erreur - Choose a number between 1 and 5.")
-        //break
-      }
-      userChoice = 0
+    case 1: // Display of teams and life points of the characters
+      listTeams()
+    case 2: // Start the battle
+      battle()
+//      reportLastAction() // Report last action
+    case 3: // Display the teams at the end of the game and the winner
+      displayEndGame()
+      endlessLoop = false
+    default:
+      print("Erreur - Choose a number between 1 and 3.")
+      //break
+    }
+    userChoice = 0
     } while endlessLoop
  } // playGame ??? --- EN COURS ----
 
@@ -128,16 +121,16 @@ class Game {
     }
   }
   
-  // display of last action report 
-  private func reportLastAction() {
-    for i in 0..<arrayTeams.count {
-      print("==========================================")
-      print("Report of last action to the team \(i+1) :")
-      print("------------------------------------------")
-      let team = arrayTeams[i]
-      team.displayLastAction()
-    }
-  }
+//  // display of last action report
+//  private func reportLastAction() {
+//    for i in 0..<arrayTeams.count {
+//      print("==========================================")
+//      print("Report of last action to the team \(i+1) :")
+//      print("------------------------------------------")
+//      let team = arrayTeams[i]
+//      team.displayLastAction()
+//    }
+//  }
 
   // Play to the game - Players perform the following action loop:
   // 1. Choose a character from your team
@@ -149,76 +142,109 @@ class Game {
     
 //    reportLastAction()
     var myCharacter: Character
+    let aTeam = Team()
+    
     repeat {
-      for i in 0..<arrayTeams.count {
-        print("===============================")
-        print("Turn of player \(i+1) - Team \(i+1) :")
-        print("===============================")
-        let team = arrayTeams[i]
+      for nbTeam in 0..<arrayTeams.count {
+//        repeat {
+        print("=============================")
+        print("Turn of player \(nbTeam+1) - Team \(nbTeam+1) :")
+        print("=============================")
+        let team = arrayTeams[nbTeam]
         team.displayTeam()
         print("==================================================")
-        print("Player \(i+1) : What characters you choose to fight ?")
+        print("Player \(nbTeam+1) : What characters you choose to fight ?")
         print("--------------------------------------------------")
-        myCharacter = arrayTeams[i].characters[userChoice() - 1]
+        myCharacter = arrayTeams[nbTeam].characters[userChoice() - 1]
+ 
+//        // check if one of my characters is dead and allows the player to play again
+//        if myCharacter.life > 0 {
         
-        if let wizard = myCharacter as? Wizard {
-          arrayTeams[i].displayTeam()
-          print("=============================================")
-          print("Choose a character of your team to heal him :")
-          print("---------------------------------------------")
-          myCharacter = arrayTeams[i].characters[userChoice() - 1]
-          wizard.heal(character: myCharacter)
-        } else {
-          
-          if i == 0 {
-            let myTeamEnemy = arrayTeams[i+1]
-            fightAction(myCharacter: myCharacter, myTeamEnemy: myTeamEnemy, index: i)
-//            let myEnemy = myTeamEnemy.characters[userChoice() - 1]
-//            arrayTeams[i].displayTeam()
-//            print("Choose a character from the opposing team to attack.")
-//            myCharacter.attack(character: myEnemy)
-//            if myTeamEnemy.isDead() {
-//            return
-//            }
+          if let wizard = myCharacter as? Wizard {
+            arrayTeams[nbTeam].displayTeam()
+            print("=============================================")
+            print("Choose a character of your team to heal him :")
+            print("---------------------------------------------")
+            myCharacter = arrayTeams[nbTeam].characters[userChoice() - 1]
+            wizard.heal(character: myCharacter)
           } else {
+            
             // attack enemy
-            let myTeamEnemy = arrayTeams[i-1]
-            fightAction(myCharacter: myCharacter, myTeamEnemy: myTeamEnemy, index: i)
-//            let myEnemy = myTeamEnemy.characters[userChoice() - 1]
-//            arrayTeams[i].displayTeam()
-//            print("Choose a character from the opposing team to attack.")
-//            myCharacter.attack(character: myEnemy)
-//            if myTeamEnemy.isDead() {
-//              return
-//            }
+            switch nbTeam {
+            case 0:
+              let myTeamEnemy = arrayTeams[nbTeam+1]
+              fightAction(myCharacter: myCharacter, myTeamEnemy: myTeamEnemy, nbTeam: nbTeam)
+              if aTeam.isDead() {
+                return
+              }
+
+            case 1:
+              let myTeamEnemy = arrayTeams[nbTeam-1]
+              fightAction(myCharacter: myCharacter, myTeamEnemy: myTeamEnemy, nbTeam: nbTeam)
+              if aTeam.isDead() {
+                return
+              }
+
+            default:
+              break
           }
-        }
+        
+            }
+//        } else {
+//          print("--------------------------------------------------")
+//          print("Sorry you're dead and you cannot attack or heal !")
+//          print("--------------------------------------------------")
+//
+//        }
+//      } while myCharacter.life == 0
       }
-    } while endlessLoop == true
+    } while aTeam.isDead() // !aTeam.isDead() // == false // while endlessLoop == true // ok with false...
   }
   
-  private func fightAction(myCharacter: Character, myTeamEnemy: Team, index: Int) {
-//    arrayTeams[index].displayTeam()
+  // Choose the character of a team to attack the enemy of the other team
+  private func fightAction(myCharacter: Character, myTeamEnemy: Team, nbTeam: Int) {
+    //    arrayTeams[nbTeam].displayTeam()
     print("=====================================================")
     print("Choose a character from the opposing team to attack :")
     print("-----------------------------------------------------")
-    if index == 0 {
-      arrayTeams[index+1].displayLastAction()
+    
+    switch nbTeam {
+    case 0:
+      arrayTeams[nbTeam+1].displayTeam()
       let myEnemy = myTeamEnemy.characters[userChoice() - 1]
       myCharacter.attack(character: myEnemy)
-    } else {
-      arrayTeams[index-1].displayLastAction()
+//        if aTeam.isDead() == false {
+//          return myCharacter.attack(character: myEnemy)
+//        } else {
+//          return print("You lose the game !!! ")
+//      }
+      
+//      if myTeamEnemy.isDead() {
+//        return
+//      }
+      
+    case 1:
+      arrayTeams[nbTeam-1].displayTeam()
       let myEnemy = myTeamEnemy.characters[userChoice() - 1]
       myCharacter.attack(character: myEnemy)
+//      if aTeam.isDead() == false {
+//        return myCharacter.attack(character: myEnemy)
+//      } else {
+//        return print("You lose the game !!! ")
+//      }
+      
+//      if myTeamEnemy.isDead() {
+//        return
+//      }
+   
+    default:
+      break
     }
-//    let myEnemy = myTeamEnemy.characters[userChoice() - 1]
-//    myCharacter.attack(character: myEnemy)
-    if myTeamEnemy.isDead() {
-      return
-    }
+    //    let myEnemy = myTeamEnemy.characters[userChoice() - 1]
+    //    myCharacter.attack(character: myEnemy)
   }
- 
-  //
+  
+  // Allows the user to choose a character of the team between 1 and 3
   private func userChoice() -> Int {
     var characterChoice = 0
     repeat {
@@ -231,12 +257,113 @@ class Game {
     return characterChoice
   }
   
+  // // check and display the winner
+  private func displayWinner() {
+    for i in 0..<arrayTeams.count {
+      let team = arrayTeams[i]
+      if team.isDead() == false {
+        print("--------------------------------------")
+        print("@@@    Team \(i+1) : You win !!!   @@@")
+        print("--------------------------------------")
+      }
+    }
+  }
+  
+  // display the teams at the end of the game and the winner
+  private func displayEndGame() {
+    print("===========================")
+    print("@@@     END OF GAME     @@@")
+    print("---------------------------")
+    listTeams() // display teams at the end of the game
+    displayWinner() // check and display the winner
+  }
+  
+  
+//  // Play to the game - Players perform the following action loop:
+//  // 1. Choose a character from your team
+//  // 2. Choose a character of the opposing team to attack or a character of its own team to care for in the case of the Mage.
+//  // The program will then carry out the attack (or heal) and tell the players what just happened.
+//  func battle() {
+//    print("=============================")
+//    print("@@@  The battle starts !  @@@")
+//
+//    //    reportLastAction()
+//    var myCharacter: Character
+//    repeat {
+//      for i in 0..<arrayTeams.count {
+//        print("===============================")
+//        print("Turn of player \(i+1) - Team \(i+1) :")
+//        print("===============================")
+//        let team = arrayTeams[i]
+//        team.displayTeam()
+//        print("==================================================")
+//        print("Player \(i+1) : What characters you choose to fight ?")
+//        print("--------------------------------------------------")
+//        myCharacter = arrayTeams[i].characters[userChoice() - 1]
+//
+//        if let wizard = myCharacter as? Wizard {
+//          arrayTeams[i].displayTeam()
+//          print("=============================================")
+//          print("Choose a character of your team to heal him :")
+//          print("---------------------------------------------")
+//          myCharacter = arrayTeams[i].characters[userChoice() - 1]
+//          wizard.heal(character: myCharacter)
+//        } else {
+//
+//          if i == 0 {
+//            let myTeamEnemy = arrayTeams[i+1]
+//            fightAction(myCharacter: myCharacter, myTeamEnemy: myTeamEnemy, index: i)
+//            //            let myEnemy = myTeamEnemy.characters[userChoice() - 1]
+//            //            arrayTeams[i].displayTeam()
+//            //            print("Choose a character from the opposing team to attack.")
+//            //            myCharacter.attack(character: myEnemy)
+//            //            if myTeamEnemy.isDead() {
+//            //            return
+//            //            }
+//          } else {
+//            // attack enemy
+//            let myTeamEnemy = arrayTeams[i-1]
+//            fightAction(myCharacter: myCharacter, myTeamEnemy: myTeamEnemy, index: i)
+//            //            let myEnemy = myTeamEnemy.characters[userChoice() - 1]
+//            //            arrayTeams[i].displayTeam()
+//            //            print("Choose a character from the opposing team to attack.")
+//            //            myCharacter.attack(character: myEnemy)
+//            //            if myTeamEnemy.isDead() {
+//            //              return
+//            //            }
+//          }
+//        }
+//      }
+//    } while endlessLoop == true
+//  }
+  
+//  private func fightAction(myCharacter: Character, myTeamEnemy: Team, index: Int) {
+////    arrayTeams[index].displayTeam()
+//    print("=====================================================")
+//    print("Choose a character from the opposing team to attack :")
+//    print("-----------------------------------------------------")
+//    if index == 0 {
+//      arrayTeams[index+1].displayLastAction()
+//      let myEnemy = myTeamEnemy.characters[userChoice() - 1]
+//      myCharacter.attack(character: myEnemy)
+//    } else {
+//      arrayTeams[index-1].displayLastAction()
+//      let myEnemy = myTeamEnemy.characters[userChoice() - 1]
+//      myCharacter.attack(character: myEnemy)
+//    }
+////    let myEnemy = myTeamEnemy.characters[userChoice() - 1]
+////    myCharacter.attack(character: myEnemy)
+//    if myTeamEnemy.isDead() {
+//      return
+//    }
+//  }
+ 
+  
   //    if userChoice == 1 {
   //      self.attack(character: character)
   //    } //else {
   ////      self.upgradeWeapon() // for test ====
   ////    }
-  
   
   
 } // END Class Game

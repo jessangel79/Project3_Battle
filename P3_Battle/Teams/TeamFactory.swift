@@ -26,10 +26,10 @@ class TeamFactory {
     print("=========================================================")
     print("Create your team - Choose 3 characters between 1 and 4 : ")
     print("---------------------------------------------------------")
-    print("1 - Fighter - Life: 100 - Damage: 10"
-      + "\n2 - Wizard  - Life: 50  - Heal: 20 "
-      + "\n3 - Giant   - Life: 200 - Damage: 5"
-      + "\n4 - Dwarf   - Life: 80  - Damage: 20"
+    print("1 - Fighter --- Life: 100 --- Damage: 15"
+      + "\n2 - Wizard  --- Life: 70  --- Heal: 20 "
+      + "\n3 - Giant   --- Life: 200 --- Damage: 5"
+      + "\n4 - Dwarf   --- Life: 80  --- Damage: 25"
       + "\n=========================================================")
   }
   

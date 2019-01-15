@@ -10,7 +10,7 @@ import Foundation
 
 class Fighter: Character {
   init(name: String) {
-    super.init(type: "Fighter", life: 100, weapon: Sword.init(), name: name)
+    super.init(type: "Fighter", life: 30, weapon: Sword.init(), name: name)
   } // life: 100
 }
 
