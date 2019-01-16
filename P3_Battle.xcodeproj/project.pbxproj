@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A25638C21E6045400F7CF88 /* TeamFactorySave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25638B21E6045400F7CF88 /* TeamFactorySave.swift */; };
 		3A25638E21E6591100F7CF88 /* TeamFactorySave2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25638D21E6591100F7CF88 /* TeamFactorySave2.swift */; };
-		3A25639021E6692A00F7CF88 /* TeamSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25638F21E6692A00F7CF88 /* TeamSave.swift */; };
-		3A25639321E66AFE00F7CF88 /* GameSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25639221E66AFE00F7CF88 /* GameSave.swift */; };
 		3A97A82D21C93FE900ED1ED2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A82C21C93FE900ED1ED2 /* main.swift */; };
 		3A97A83721C94C3500ED1ED2 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A83621C94C3500ED1ED2 /* Character.swift */; };
 		3A97A83921C94C6900ED1ED2 /* Fighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A83821C94C6900ED1ED2 /* Fighter.swift */; };
@@ -25,8 +22,8 @@
 		3A97A86821CBA5F000ED1ED2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A86721CBA5F000ED1ED2 /* Game.swift */; };
 		3A97A86F21CCE6B000ED1ED2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A86E21CCE6B000ED1ED2 /* Team.swift */; };
 		3AE2022B21D62D930025D042 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2022A21D62D930025D042 /* Test.swift */; };
-		3AE2022D21D657CD0025D042 /* TeamOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2022C21D657CD0025D042 /* TeamOld.swift */; };
-		3AE2022F21D668260025D042 /* KO-CheckName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2022E21D668260025D042 /* KO-CheckName.swift */; };
+		3AE299ED21EF77F40000574E /* GameSaveOk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE299EC21EF77F40000574E /* GameSaveOk.swift */; };
+		3AE299EF21EF92C00000574E /* GameOk-1601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE299EE21EF92C00000574E /* GameOk-1601.swift */; };
 		3AE69A1121DF6B7C0097BCD1 /* TeamFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69A1021DF6B7C0097BCD1 /* TeamFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,10 +40,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3A25638B21E6045400F7CF88 /* TeamFactorySave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamFactorySave.swift; sourceTree = "<group>"; };
 		3A25638D21E6591100F7CF88 /* TeamFactorySave2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamFactorySave2.swift; sourceTree = "<group>"; };
-		3A25638F21E6692A00F7CF88 /* TeamSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSave.swift; sourceTree = "<group>"; };
-		3A25639221E66AFE00F7CF88 /* GameSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSave.swift; sourceTree = "<group>"; };
 		3A97A82921C93FE900ED1ED2 /* P3_Battle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = P3_Battle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A97A82C21C93FE900ED1ED2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3A97A83621C94C3500ED1ED2 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -62,8 +56,8 @@
 		3A97A86721CBA5F000ED1ED2 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3A97A86E21CCE6B000ED1ED2 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		3AE2022A21D62D930025D042 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
-		3AE2022C21D657CD0025D042 /* TeamOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOld.swift; sourceTree = "<group>"; };
-		3AE2022E21D668260025D042 /* KO-CheckName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KO-CheckName.swift"; sourceTree = "<group>"; };
+		3AE299EC21EF77F40000574E /* GameSaveOk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSaveOk.swift; sourceTree = "<group>"; };
+		3AE299EE21EF92C00000574E /* GameOk-1601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameOk-1601.swift"; sourceTree = "<group>"; };
 		3AE69A1021DF6B7C0097BCD1 /* TeamFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,13 +75,10 @@
 		3A25639121E6697400F7CF88 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				3A25639221E66AFE00F7CF88 /* GameSave.swift */,
-				3A25638F21E6692A00F7CF88 /* TeamSave.swift */,
-				3A25638B21E6045400F7CF88 /* TeamFactorySave.swift */,
+				3AE299EE21EF92C00000574E /* GameOk-1601.swift */,
+				3AE299EC21EF77F40000574E /* GameSaveOk.swift */,
 				3A25638D21E6591100F7CF88 /* TeamFactorySave2.swift */,
-				3AE2022E21D668260025D042 /* KO-CheckName.swift */,
 				3AE2022A21D62D930025D042 /* Test.swift */,
-				3AE2022C21D657CD0025D042 /* TeamOld.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -217,17 +208,14 @@
 				3A97A82D21C93FE900ED1ED2 /* main.swift in Sources */,
 				3A97A84821CA470700ED1ED2 /* Scepter.swift in Sources */,
 				3A25638E21E6591100F7CF88 /* TeamFactorySave2.swift in Sources */,
+				3AE299EF21EF92C00000574E /* GameOk-1601.swift in Sources */,
 				3AE69A1121DF6B7C0097BCD1 /* TeamFactory.swift in Sources */,
 				3A97A84E21CA473300ED1ED2 /* Weapon.swift in Sources */,
-				3AE2022D21D657CD0025D042 /* TeamOld.swift in Sources */,
-				3A25639321E66AFE00F7CF88 /* GameSave.swift in Sources */,
+				3AE299ED21EF77F40000574E /* GameSaveOk.swift in Sources */,
 				3A97A84A21CA471500ED1ED2 /* Mace.swift in Sources */,
 				3A97A83D21C94D2C00ED1ED2 /* Dwarf.swift in Sources */,
-				3A25638C21E6045400F7CF88 /* TeamFactorySave.swift in Sources */,
-				3AE2022F21D668260025D042 /* KO-CheckName.swift in Sources */,
 				3A97A84621CA46F800ED1ED2 /* Sword.swift in Sources */,
 				3A97A83921C94C6900ED1ED2 /* Fighter.swift in Sources */,
-				3A25639021E6692A00F7CF88 /* TeamSave.swift in Sources */,
 				3A97A86F21CCE6B000ED1ED2 /* Team.swift in Sources */,
 				3A97A83721C94C3500ED1ED2 /* Character.swift in Sources */,
 				3A97A84C21CA472000ED1ED2 /* Axe.swift in Sources */,

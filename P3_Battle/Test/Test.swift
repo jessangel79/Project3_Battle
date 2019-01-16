@@ -7,6 +7,27 @@
 //
 //
 //import Foundation
+
+// in class Team =>
+// display of last action report in array "characters"
+//  func displayLastAction() {
+//    for i in 0..<characters.count {
+//      let character = characters[i]
+//      if character.life <= 0 {
+//        print("\(i+1) - The \(character.type) \"\(character.name)\" is dead !")
+//        print(" ")
+//      } else {
+//        if character is Wizard {
+//          print("\(i+1) - The \(character.type) \"\(character.name)\" --- Points of life : \(character.life) --- Points for healing : \(character.weapon.heal).")
+//          print(" ")
+//        } else if character is Fighter || character is Dwarf || character is Giant {
+//          print("\(i+1) - The \(character.type) \"\(character.name)\" --- Points of life : \(character.life) --- Points of damage : \(character.weapon.damage).")
+//          print(" ")
+//        }
+//      }
+//    }
+//  }
+
 //
 // verification if the name already exists
 //        for _ in characters {

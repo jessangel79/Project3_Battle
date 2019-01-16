@@ -29,56 +29,17 @@ class Team {
     }
   }
   
-  // display of last action report in array "characters"
-//  func displayLastAction() {
-//    for i in 0..<characters.count {
-//      let character = characters[i]
-//      if character.life <= 0 {
-//        print("\(i+1) - The \(character.type) \"\(character.name)\" is dead !")
-//        print(" ")
-//      } else {
-//        if character is Wizard {
-//          print("\(i+1) - The \(character.type) \"\(character.name)\" --- Points of life : \(character.life) --- Points for healing : \(character.weapon.heal).")
-//          print(" ")
-//        } else if character is Fighter || character is Dwarf || character is Giant {
-//          print("\(i+1) - The \(character.type) \"\(character.name)\" --- Points of life : \(character.life) --- Points of damage : \(character.weapon.damage).")
-//          print(" ")
-//        }
-//      }
-//    }
-//  }
-
   // function returns true if the character is dead
   func isDead() -> Bool {
     var isDead = false
     for character in characters {
       if character.life <= 0 {
         isDead = true
-      } else {
-        return false
+      } else { //false
+        isDead = false
+        return isDead
       }
     }
     return isDead
-  }
-  
-  // //   display of last action report in array "characters"
-  //  func displayLastAction() {
-  //    for i in 0..<characters.count {
-  //      let character = characters[i]
-  //      if character.life >= 1 {
-  //        if character is Wizard {
-  //          print("\(i+1) - The \(character.type) \"\(character.name)\" has \(character.life) points of life and can heal \(character.weapon.heal) life's points.")
-  //          print(" ")
-  //        } else if character is Fighter || character is Dwarf || character is Giant {
-  //          print("\(i+1) - The \(character.type) \"\(character.name)\" has \(character.life) points of life and \(character.weapon.damage) attack's points.")
-  //          print(" ")
-  //        }
-  //      } else {
-  //        print("\(i+1) - The \(character.type) \"\(character.name)\" is dead !")
-  //        print(" ")
-  //      }
-  //    }
-  //  }
-  
-  
+  }  
 } // END class Team
