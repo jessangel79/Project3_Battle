@@ -8,6 +8,85 @@
 //
 //import Foundation
 
+
+// function exitGame() : en test ###
+
+// check if the team have been created and the user can choose to continue or no
+//private func exitGame() {
+//  var userExit = 0
+//if arrayTeams.count == 0 || endBattle == true {
+//  print("Exit of game")
+//  endlessLoop = false
+//} else if arrayTeams.count != 0 || endBattle == false  {
+//  print("Alert your teams have been created !")
+//  print("Do you really want to quit the game ?")
+//  print("1 - Yes")
+//  print("2 - No")
+//  repeat {
+//    if let data = readLine() {
+//      if let dataToInt = Int(data) {
+//        userExit = dataToInt
+//      }
+//    }
+//  } while userExit != 1 && userExit != 2
+//
+//  switch userExit {
+//  case 1:
+//    print("Exit of game")
+//    endlessLoop = false
+//  case 2:
+//    print("Continue the game")
+//    endlessLoop = true
+//  default:
+//    break
+//  }
+//  userExit = 0
+//}
+//}
+
+// in class Game => function OK
+// check if the team have been created and the user can choose to continue or no
+//private func exitGame() {
+//  var userExit = 0
+//  if arrayTeams.count != 0 {
+//    print("Alert your teams have been created !")
+//    print("Do you really want to quit the game ?")
+//    print("1 - Yes")
+//    print("2 - No")
+//    repeat {
+//      if let data = readLine() {
+//        if let dataToInt = Int(data) {
+//          userExit = dataToInt
+//        }
+//      }
+//    } while userExit != 1 && userExit != 2
+//
+//    switch userExit {
+//    case 1:
+//      print("Exit of game")
+//      endlessLoop = false
+//    case 2:
+//      print("Continue the game")
+//      endlessLoop = true
+//    default:
+//      break
+//    }
+//    userExit = 0
+//  } else {
+//    print("Exit of game")
+//    endlessLoop = false
+//  }
+//}
+
+// in class TeamFactory =>
+//  MARK: - Vars
+//  var nameTeam: String
+
+//  MARK: - Init
+//  init(nameTeam: String) {
+//    self.nameTeam = nameTeam
+//  }
+
 // in class Team =>
 // display of last action report in array "characters"
 //  func displayLastAction() {

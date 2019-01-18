@@ -12,11 +12,12 @@ class Game {
   
   //MARK: - Vars
   private var arrayTeams = [Team]() // array of the teams with the arrays of 3 the characters
+  
   private var endlessLoop = true // let si false
-  private var endBattle = false
+  private var isBattleIsEnded = false
 
   //MARK: - Methodes
-
+  
   // function for start game
   func start() {
     var userChoice = 0
@@ -33,7 +34,7 @@ class Game {
       switch userChoice {
       case 1: // New game with reset of varible and creation of the teams
         endlessLoop = true
-        endBattle = false
+        isBattleIsEnded = false
         let teamFactory = TeamFactory()
         teamFactory.createTeams()
         arrayTeams = teamFactory.arrayTeams // import arrayTeams of class TeamFactory
@@ -41,6 +42,7 @@ class Game {
         listTeams()
       case 3: // Start the battle
         battle()
+        endOfBattle()
       case 4: // Show the teams and the winner to the end of game
         resumeGame()
       case 5: // Exit of game
@@ -55,17 +57,17 @@ class Game {
   // Interface to display the starting menu
   private func welcome() {
     print("")
-    print("========================================================================")
-    print("@@@@@@@@@@@@          Battle of warriors            @@@@@@@@@@@@")
-    print("========================================================================")
+    print("===========================================================================")
+    print("@@@@@@@@@@@@            Battle of warriors              @@@@@@@@@@@@")
+    print("===========================================================================")
     print("What action to do ? - Choose a number between 1 and 5 :")
-    print("------------------------------------------------------------------------")
+    print("---------------------------------------------------------------------------")
     print("1. New Game : Creation of the teams.")
     print("2. Show the teams created : statistics and equipment for each character.")
     print("3. Start the battle ! ")
     print("4. Show the teams and the winner to the end of game.")
     print("5. Exit of Game ")
-    print("========================================================================")
+    print("===========================================================================")
   }
 
   // display the teams and life points of the characters
@@ -90,19 +92,17 @@ class Game {
   func battle() {
     if arrayTeams.count == 0 {
       print("Sorry no team was created !")
-    } else if endBattle == true {
-      resumeGame()
+    } else if isBattleIsEnded == true {
+      print(" ")
+      print("The game is ended ! Please to select a new game.")
     } else {
       print("=============================")
       print("@@@  The battle starts !  @@@")
       
       var myCharacter: Character
-      let aTeam = Team()
       
       repeat {
-//      while endBattle == false {
         for nbTeam in 0..<arrayTeams.count {
-          if endBattle == false {
             print("=============================")
             print("Turn of player \(nbTeam+1) - Team \(nbTeam+1) :")
             print("=============================")
@@ -112,7 +112,12 @@ class Game {
             print("Player \(nbTeam+1) : What characters you choose to fight ?")
             print("--------------------------------------------------")
             myCharacter = arrayTeams[nbTeam].characters[userChoice() - 1]
+            //
+          if myCharacter.life > 0 { // check if the character selected is alive
+            // a chest appears randomly in front of the character and a new weapon appears
+            randomChest(character: myCharacter)
             
+            // check if the character is a wizard
             if let wizard = myCharacter as? Wizard {
               arrayTeams[nbTeam].displayTeam()
               print("=============================================")
@@ -123,28 +128,27 @@ class Game {
             } else {
               
               // attack enemy
-              switch nbTeam {
-              case 0:
+              if nbTeam == 0 {
                 let myTeamEnemy = arrayTeams[nbTeam+1]
                 fightAttack(myCharacter: myCharacter, myTeamEnemy: myTeamEnemy, nbTeam: nbTeam)
-                if aTeam.isDead() {
+                if myTeamEnemy.isDead() { // check if the enemy is dead
                   return
                 }
-                teamIsDead()
-              case 1:
+              } else {
                 let myTeamEnemy = arrayTeams[nbTeam-1]
                 fightAttack(myCharacter: myCharacter, myTeamEnemy: myTeamEnemy, nbTeam: nbTeam)
-                if aTeam.isDead() {
+                if myTeamEnemy.isDead() {
                   return
                 }
-                teamIsDead()
-              default:
-                break
               }
             }
-          } // END if endBattle
+          } else {
+            print("----------------------------------------------------------------------------")
+            print("Sorry the \(myCharacter.type) \"\(myCharacter.name)\" is already dead and cannot attack !!! ")
+            print("----------------------------------------------------------------------------")
+          }
         } // END of loop for in
-      } while endBattle == false // END of while
+      } while isBattleIsEnded == false
     }
   }
   
@@ -189,35 +193,43 @@ class Game {
         print("-----------------------------------------------------")
         print("@@@   Player \(i+1) - Team \(i+1) : You win !!!   @@@")
         print("-----------------------------------------------------")
-//        endBattle = true // A revoir ####
       }
-    } // en test ######
+    }
   }
   
   // display the teams and the winner at the end of the game
   private func resumeGame() {
-    print("===========================")
-    print("@@@     END OF GAME     @@@")
-    print("---------------------------")
-    listTeams() // display teams at the end of the game
-    displayWinner() // check and display the winner
+    if arrayTeams.count == 0 {
+      print("Thanks select \"New Game\" ")
+    } else if arrayTeams.count != 0 && isBattleIsEnded == false {
+      print("No winner because the game did not start - Thanks select \"Start the battle\" ")
+    } else {
+      print("=========================================")
+      print("@@@@@@@@       END OF GAME       @@@@@@@@")
+      print("-----------------------------------------")
+      listTeams() // display teams at the end of the game
+      displayWinner() // check and display the winner
+    }
   }
   
-  // // check if a team is dead
-  private func teamIsDead() {
+  // Confirm the end of the battle with isBattleIsEnded = true
+  private func endOfBattle() {
     for i in 0..<arrayTeams.count {
       let team = arrayTeams[i]
-      if team.isDead() == true {
-        endBattle = true // A revoir #### player 2 can play even if isDead
-        resumeGame()
+      if team.isDead() == true && arrayTeams.count != 0 {
+        isBattleIsEnded = true
       }
     }
+    resumeGame() // display the teams and the winner at the end of the game
   }
   
   // check if the team have been created and the user can choose to continue or no
   private func exitGame() {
     var userExit = 0
-    if arrayTeams.count != 0 {
+    if arrayTeams.count == 0 || isBattleIsEnded == true {
+      print("Exit of game")
+      endlessLoop = false
+    } else if arrayTeams.count != 0 || isBattleIsEnded == false  {
       print("Alert your teams have been created !")
       print("Do you really want to quit the game ?")
       print("1 - Yes")
@@ -229,7 +241,7 @@ class Game {
           }
         }
       } while userExit != 1 && userExit != 2
-      
+    
       switch userExit {
       case 1:
         print("Exit of game")
@@ -241,9 +253,42 @@ class Game {
         break
       }
       userExit = 0
-    } else {
-      print("Exit of game")
-      endlessLoop = false
     }
   }
+  
+  // a chest appears randomly in front of the character and a new weapon appears
+  private func randomChest(character: Character) {
+    let randomNumber = Int.random(in: 0 ... 100)
+    if randomNumber <= 20 {
+      let arrayHealWeapon = [StaffOfNordrassil.init(), MoonLightGreatSword.init(), StaffOfFire.init()]
+      let arrayDamageWeapon = [SwordOfAnduril.init(), DevilsHammer.init(), SolarSword.init(), SwordFishCurved.init()]
+      
+      let randomWeaponHeal = arrayHealWeapon.randomElement()
+      let randomWeaponDamage = arrayDamageWeapon.randomElement()
+      
+      if character is Wizard {
+        let newWeapon = randomWeaponHeal
+        character.weapon = newWeapon!
+        print("@@@@@@@@@@@===========================------------===========================@@@@@@@@@@@")
+        print("Congratulations ! You discover a chest and you get a new weapon :")
+        print("Your \(character.type) \"\(character.name)\" gets the \"\(character.weapon.nameWeapon)\" and now can give \(character.weapon.heal) points of healing !!!")
+        print("@@@@@@@@@@@===========================------------===========================@@@@@@@@@@@")
+        print(" ")
+      } else {
+        let newWeapon = randomWeaponDamage
+        character.weapon = newWeapon!
+        print("@@@@@@@@@@@===========================------------===========================@@@@@@@@@@@")
+        print("Congratulations ! You discover a chest and you get a new weapon !")
+        print("Your \(character.type) \"\(character.name)\" gets the \"\(character.weapon.nameWeapon)\" and now can inflict \(character.weapon.damage) points of damage !!!")
+        print("@@@@@@@@@@@===========================------------===========================@@@@@@@@@@@")
+        print(" ")
+      }
+    }
+  }
+
+  
+  
+  
+  
+  
 } // END class Game

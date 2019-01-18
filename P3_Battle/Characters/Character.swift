@@ -41,7 +41,7 @@ class Character {
         character.receive(damage: weapon.damage)
         print("----------------------------------------------------------------------------------------")
         print("The \(character.type) \"\(character.name)\" received \(weapon.damage) points of damage by the \(weapon.nameWeapon) of your \(type) \"\(name)\" !")
-        print("--------------------------------------------------------------------")
+        print("----------------------------------------------------------------------------------------")
         if character.life <= 0 {
            print("The \(character.type) \"\(character.name)\" is dead !!! ")
         }

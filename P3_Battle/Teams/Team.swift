@@ -11,9 +11,7 @@ import Foundation
 class Team {
 
   //MARK: - Vars
-  var characters = [Character]() // with mentor
-
-  //MARK: - Init
+  var characters = [Character]()
 
   // MARK: - Methodes
   // display of list of the teams

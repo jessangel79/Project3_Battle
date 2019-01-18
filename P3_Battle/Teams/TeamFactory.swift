@@ -11,14 +11,8 @@ import Foundation
 class TeamFactory {
   
   //MARK: - Vars
-  private var checkName = [String]() // with mentor
-  var arrayTeams = [Team]() // with mentor
-//  var nameTeam: String
-
-//  MARK: - Init
-//  init(nameTeam: String) {
-//    self.nameTeam = nameTeam
-//  }
+  private var checkName = [String]()
+  var arrayTeams = [Team]()
   
   // MARK: - Methodes
   private func listCharactersMenu() {
@@ -26,9 +20,9 @@ class TeamFactory {
     print("=========================================================")
     print("Create your team - Choose 3 characters between 1 and 4 : ")
     print("---------------------------------------------------------")
-    print("1 - Fighter --- Life: 100 --- Damage: 15"
+    print("1 - Fighter --- Life: 100 --- Damage: 10"
       + "\n2 - Wizard  --- Life: 70  --- Heal: 20 "
-      + "\n3 - Giant   --- Life: 200 --- Damage: 5"
+      + "\n3 - Giant   --- Life: 120 --- Damage: 5"
       + "\n4 - Dwarf   --- Life: 80  --- Damage: 25"
       + "\n=========================================================")
   }
@@ -81,16 +75,6 @@ class TeamFactory {
   
   // Create a team
   private func createTeam() -> Team? {
-    //var nameTeam = ""
-    //    print("")
-    //    print("=========================")
-    //    print("Enter the name of team : ")
-    //    print("=========================")
-    //    repeat {
-    //      if let data = readLine() {
-    //        nameTeam = data
-    //      }
-    //    } while nameTeam == ""
     
     let team = Team()
     guard let characters = createCharacters() else { return nil }
@@ -115,7 +99,7 @@ class TeamFactory {
       }
     } while numberOfTeams == 0
     
-    // Loop for the creation of teams as much as the player has chosen - // with mentor
+    // Loop for the creation of teams as much as the player has chosen
     for i in 0..<numberOfTeams {
       // Choose the name of player
       var namePlayer = ""
@@ -158,5 +142,4 @@ class TeamFactory {
     return characterName
   }
 
-  
 } // END class TeamFactory
