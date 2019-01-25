@@ -89,7 +89,7 @@ class Game {
   // 1. Choose a character from your team
   // 2. Choose a character of the opposing team to attack or a character of its own team to care for in the case of the Wizard.
   // The program will then carry out the attack (or heal) and tell the players what just happened.
-  func battle() {
+  private func battle() {
     if arrayTeams.count == 0 {
       print("Sorry no team was created !")
     } else if isBattleIsEnded == true {
@@ -112,40 +112,47 @@ class Game {
             print("Player \(nbTeam+1) : What characters you choose to fight ?")
             print("--------------------------------------------------")
             myCharacter = arrayTeams[nbTeam].characters[userChoice() - 1]
-            //
-          if myCharacter.life > 0 { // check if the character selected is alive
-            // a chest appears randomly in front of the character and a new weapon appears
-            randomChest(character: myCharacter)
+          
+          if myCharacter.life > 0 {
             
-            // check if the character is a wizard
-            if let wizard = myCharacter as? Wizard {
-              arrayTeams[nbTeam].displayTeam()
-              print("=============================================")
-              print("Choose a character of your team to heal him :")
-              print("---------------------------------------------")
-              myCharacter = arrayTeams[nbTeam].characters[userChoice() - 1]
-              wizard.heal(character: myCharacter)
-            } else {
+            // a chest appears randomly in front of the character and a new weapon appears
+            let randomChest = Chest()
+            randomChest.randomChest(character: myCharacter)
+            
+            if myCharacter.isBlocked == false {
               
-              // attack enemy
-              if nbTeam == 0 {
-                let myTeamEnemy = arrayTeams[nbTeam+1]
-                fightAttack(myCharacter: myCharacter, myTeamEnemy: myTeamEnemy, nbTeam: nbTeam)
-                if myTeamEnemy.isDead() { // check if the enemy is dead
-                  return
-                }
+              // check if the character is a wizard
+              if let wizard = myCharacter as? Wizard {
+                arrayTeams[nbTeam].displayTeam()
+                print("=============================================")
+                print("Choose a character of your team to heal him :")
+                print("---------------------------------------------")
+                myCharacter = arrayTeams[nbTeam].characters[userChoice() - 1]
+                wizard.heal(character: myCharacter)
               } else {
-                let myTeamEnemy = arrayTeams[nbTeam-1]
-                fightAttack(myCharacter: myCharacter, myTeamEnemy: myTeamEnemy, nbTeam: nbTeam)
-                if myTeamEnemy.isDead() {
-                  return
+                // attack enemy
+                if nbTeam == 0 {
+                  let myTeamEnemy = arrayTeams[nbTeam+1]
+                  fightAttack(myCharacter: myCharacter, myTeamEnemy: myTeamEnemy, nbTeam: nbTeam)
+                  if myTeamEnemy.isDead() { // check if the enemy is dead
+                    return
+                  }
+                } else {
+                  let myTeamEnemy = arrayTeams[nbTeam-1]
+                  fightAttack(myCharacter: myCharacter, myTeamEnemy: myTeamEnemy, nbTeam: nbTeam)
+                  if myTeamEnemy.isDead() {
+                    return
+                  }
                 }
               }
+            } else { // BONUS : If the character was touched by the "POWER TO FREEZE" of the Elementary Of Ice with 50 % of random.
+            print("The \(myCharacter.type) \"\(myCharacter.name)\" is freezing and blocked for this turn.")
+            myCharacter.isBlocked = false
             }
           } else {
-            print("----------------------------------------------------------------------------")
-            print("Sorry the \(myCharacter.type) \"\(myCharacter.name)\" is already dead and cannot attack !!! ")
-            print("----------------------------------------------------------------------------")
+              print("----------------------------------------------------------------------------")
+              print("Sorry the \(myCharacter.type) \"\(myCharacter.name)\" is already dead and cannot attack !!! ")
+              print("----------------------------------------------------------------------------")
           }
         } // END of loop for in
       } while isBattleIsEnded == false
@@ -208,7 +215,7 @@ class Game {
       print("@@@@@@@@       END OF GAME       @@@@@@@@")
       print("-----------------------------------------")
       listTeams() // display teams at the end of the game
-      displayWinner() // check and display the winner
+      displayWinner()
     }
   }
   
@@ -255,40 +262,4 @@ class Game {
       userExit = 0
     }
   }
-  
-  // a chest appears randomly in front of the character and a new weapon appears
-  private func randomChest(character: Character) {
-    let randomNumber = Int.random(in: 0 ... 100)
-    if randomNumber <= 20 {
-      let arrayHealWeapon = [StaffOfNordrassil.init(), MoonLightGreatSword.init(), StaffOfFire.init()]
-      let arrayDamageWeapon = [SwordOfAnduril.init(), DevilsHammer.init(), SolarSword.init(), SwordFishCurved.init()]
-      
-      let randomWeaponHeal = arrayHealWeapon.randomElement()
-      let randomWeaponDamage = arrayDamageWeapon.randomElement()
-      
-      if character is Wizard {
-        let newWeapon = randomWeaponHeal
-        character.weapon = newWeapon!
-        print("@@@@@@@@@@@===========================------------===========================@@@@@@@@@@@")
-        print("Congratulations ! You discover a chest and you get a new weapon :")
-        print("Your \(character.type) \"\(character.name)\" gets the \"\(character.weapon.nameWeapon)\" and now can give \(character.weapon.heal) points of healing !!!")
-        print("@@@@@@@@@@@===========================------------===========================@@@@@@@@@@@")
-        print(" ")
-      } else {
-        let newWeapon = randomWeaponDamage
-        character.weapon = newWeapon!
-        print("@@@@@@@@@@@===========================------------===========================@@@@@@@@@@@")
-        print("Congratulations ! You discover a chest and you get a new weapon !")
-        print("Your \(character.type) \"\(character.name)\" gets the \"\(character.weapon.nameWeapon)\" and now can inflict \(character.weapon.damage) points of damage !!!")
-        print("@@@@@@@@@@@===========================------------===========================@@@@@@@@@@@")
-        print(" ")
-      }
-    }
-  }
-
-  
-  
-  
-  
-  
 } // END class Game

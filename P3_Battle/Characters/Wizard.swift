@@ -8,18 +8,22 @@
 
 import Foundation
 
-class Wizard: Character {
+class Wizard: Character { // type heal
   
   //MARK: - Inits
   init(name: String) {
-    super.init(type: "Wizard", life: 30, weapon: Scepter.init(), name: name)    
-  } // life: 70
+    super.init(type: "Wizard", life: 70, weapon: Scepter.init(), name: name, isBlocked: false)    
+  }
   
   //MARK: - Methodes
   func heal(character: Character) {
     if life > 0 {
       if character.life > 0 {
-        character.life += weapon.heal // heal with 20 points
+        
+        dispel(character: character) // unlocked a character
+        
+        character.life += weapon.heal
+        
         print("Your \(character.type) \"\(character.name)\" has recovered \(weapon.heal) points of life by the \(weapon.nameWeapon) of your \(type) \"\(name)\" !")
         if character.life >= character.lifeMaxLimit {
           print("He has recovered the totality of his life points.")
@@ -32,12 +36,16 @@ class Wizard: Character {
     }
   }
   
+  // unlocked a character who has been blocked by the "Power Of Ice"
+  private func dispel(character: Character) {
+    if character.isBlocked == true {
+      character.isBlocked = false
+      print("Your \(character.type) \"\(character.name)\" as been unfrozen by your \(type) \"\(name)\" !")
+    }
+  }
   
   override func attack(character: Character) {
     print("The \(type) \"\(name)\" can't attack but only to heal !")
   }
 }
 
-
-
-//     print(" TO BE CONTINUED ")

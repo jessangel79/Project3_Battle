@@ -8,9 +8,11 @@
 
 import Foundation
 
-class Fighter: Character {
+class Fighter: Character { // type attack
+  
+  //MARK: - Init
   init(name: String) {
-    super.init(type: "Fighter", life: 30, weapon: Sword.init(), name: name)
-  } // life: 100
+    super.init(type: "Fighter", life: 100, weapon: Sword.init(), name: name, isBlocked: false)
+  }
 }
 

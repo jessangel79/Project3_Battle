@@ -17,14 +17,15 @@ class TeamFactory {
   // MARK: - Methodes
   private func listCharactersMenu() {
     print("")
-    print("=========================================================")
+    print("======================================================================")
     print("Create your team - Choose 3 characters between 1 and 4 : ")
-    print("---------------------------------------------------------")
-    print("1 - Fighter --- Life: 100 --- Damage: 10"
-      + "\n2 - Wizard  --- Life: 70  --- Heal: 20 "
-      + "\n3 - Giant   --- Life: 120 --- Damage: 5"
-      + "\n4 - Dwarf   --- Life: 80  --- Damage: 25"
-      + "\n=========================================================")
+    print("----------------------------------------------------------------------")
+    print("1 - Fighter ------------- Life: 100 --- Damage: 10 "
+      + "\n2 - Wizard  ------------- Life: 70  --- Heal: 20 + Dispel "
+      + "\n3 - Giant   ------------- Life: 120 --- Damage: 5 "
+      + "\n4 - Dwarf   ------------- Life: 80  --- Damage: 25 "
+      + "\n5 - Elementary Of Ice --- Life: 90  --- Damage: 15 + Power to freeze "
+      + "\n=====================================================================")
   }
   
   // function to choice a character
@@ -38,26 +39,30 @@ class TeamFactory {
           userChoice = dataToInt
         }
       }
-    } while userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4
+    } while userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4 && userChoice != 5
     
     
     switch userChoice {
     case 1: // fighter
       let fighter = Fighter(name: uniqueCharacterName())
-      print("Added a fighter to the team.")
+      print("Added a fighter to the team with the name \"\(fighter.name)\".")
       return fighter
     case 2: // wizard
       let wizard = Wizard(name: uniqueCharacterName())
-      print("Added a wizard to the team.")
+      print("Added a Wizard to the team with the name \"\(wizard.name)\".")
       return wizard
     case 3: // giant
       let giant = Giant(name: uniqueCharacterName())
-      print("Added a giant to the team.")
+      print("Added a Giant to the team with the name \"\(giant.name)\".")
       return giant
     case 4: // dwarf
       let dwarf = Dwarf(name: uniqueCharacterName())
-      print("Added a dwarf to the team.")
+      print("Added a Dwarf to the team with the name \"\(dwarf.name)\".")
       return dwarf
+    case 5: // Elementary Of Ice
+      let elementaryOfIce = ElementaryOfIce(name: uniqueCharacterName())
+      print("Added a Elementary Of Ice to the team with the name \"\(elementaryOfIce.name)\".")
+      return elementaryOfIce
     default:
       return nil
     }

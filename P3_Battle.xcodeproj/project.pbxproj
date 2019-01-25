@@ -20,7 +20,6 @@
 		3A97A84E21CA473300ED1ED2 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A84D21CA473300ED1ED2 /* Weapon.swift */; };
 		3A97A86821CBA5F000ED1ED2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A86721CBA5F000ED1ED2 /* Game.swift */; };
 		3A97A86F21CCE6B000ED1ED2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97A86E21CCE6B000ED1ED2 /* Team.swift */; };
-		3AE2022B21D62D930025D042 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2022A21D62D930025D042 /* Test.swift */; };
 		3AE69A1121DF6B7C0097BCD1 /* TeamFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69A1021DF6B7C0097BCD1 /* TeamFactory.swift */; };
 		3AE8E23D21F1CC780057A102 /* SwordOfAnduril.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE8E23C21F1CC780057A102 /* SwordOfAnduril.swift */; };
 		3AE8E23F21F1CC920057A102 /* StaffOfNordrassil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE8E23E21F1CC920057A102 /* StaffOfNordrassil.swift */; };
@@ -29,6 +28,9 @@
 		3AE8E24521F1E4F40057A102 /* SwordFishCurved.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE8E24421F1E4F40057A102 /* SwordFishCurved.swift */; };
 		3AE8E24721F1E5070057A102 /* SolarSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE8E24621F1E5070057A102 /* SolarSword.swift */; };
 		3AE8E24921F1E51B0057A102 /* DevilsHammer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE8E24821F1E51B0057A102 /* DevilsHammer.swift */; };
+		3AEB92FE21F221C500EB875A /* ElementaryOfIce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB92FD21F221C500EB875A /* ElementaryOfIce.swift */; };
+		3AEB930021F2222E00EB875A /* BatOfIce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB92FF21F2222E00EB875A /* BatOfIce.swift */; };
+		3AF419A021F86A7A00B04E7E /* Chest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4199F21F86A7A00B04E7E /* Chest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,7 +60,6 @@
 		3A97A84D21CA473300ED1ED2 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		3A97A86721CBA5F000ED1ED2 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3A97A86E21CCE6B000ED1ED2 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
-		3AE2022A21D62D930025D042 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		3AE69A1021DF6B7C0097BCD1 /* TeamFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamFactory.swift; sourceTree = "<group>"; };
 		3AE8E23C21F1CC780057A102 /* SwordOfAnduril.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwordOfAnduril.swift; sourceTree = "<group>"; };
 		3AE8E23E21F1CC920057A102 /* StaffOfNordrassil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffOfNordrassil.swift; sourceTree = "<group>"; };
@@ -67,6 +68,9 @@
 		3AE8E24421F1E4F40057A102 /* SwordFishCurved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwordFishCurved.swift; sourceTree = "<group>"; };
 		3AE8E24621F1E5070057A102 /* SolarSword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSword.swift; sourceTree = "<group>"; };
 		3AE8E24821F1E51B0057A102 /* DevilsHammer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevilsHammer.swift; sourceTree = "<group>"; };
+		3AEB92FD21F221C500EB875A /* ElementaryOfIce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementaryOfIce.swift; sourceTree = "<group>"; };
+		3AEB92FF21F2222E00EB875A /* BatOfIce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatOfIce.swift; sourceTree = "<group>"; };
+		3AF4199F21F86A7A00B04E7E /* Chest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,14 +84,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A25639121E6697400F7CF88 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				3AE2022A21D62D930025D042 /* Test.swift */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
 		3A97A82021C93FE900ED1ED2 = {
 			isa = PBXGroup;
 			children = (
@@ -109,10 +105,10 @@
 			children = (
 				3A97A82C21C93FE900ED1ED2 /* main.swift */,
 				3A97A86721CBA5F000ED1ED2 /* Game.swift */,
+				3AF4199F21F86A7A00B04E7E /* Chest.swift */,
 				3A97A86921CBAEC300ED1ED2 /* Teams */,
 				3A97A83321C94BC200ED1ED2 /* Characters */,
 				3A97A84421CA46DD00ED1ED2 /* Weapons */,
-				3A25639121E6697400F7CF88 /* Test */,
 			);
 			path = P3_Battle;
 			sourceTree = "<group>";
@@ -125,6 +121,7 @@
 				3A97A83A21C94CD200ED1ED2 /* Wizard.swift */,
 				3A97A83E21C94D3C00ED1ED2 /* Giant.swift */,
 				3A97A83C21C94D2C00ED1ED2 /* Dwarf.swift */,
+				3AEB92FD21F221C500EB875A /* ElementaryOfIce.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -144,6 +141,7 @@
 				3AE8E23E21F1CC920057A102 /* StaffOfNordrassil.swift */,
 				3AE8E24021F1E3430057A102 /* MoonLightGreatSword.swift */,
 				3AE8E24221F1E4D60057A102 /* StaffOfFire.swift */,
+				3AEB92FF21F2222E00EB875A /* BatOfIce.swift */,
 			);
 			path = Weapons;
 			sourceTree = "<group>";
@@ -223,9 +221,12 @@
 				3A97A82D21C93FE900ED1ED2 /* main.swift in Sources */,
 				3AE8E23F21F1CC920057A102 /* StaffOfNordrassil.swift in Sources */,
 				3AE8E24721F1E5070057A102 /* SolarSword.swift in Sources */,
+				3AF419A021F86A7A00B04E7E /* Chest.swift in Sources */,
 				3AE8E24121F1E3430057A102 /* MoonLightGreatSword.swift in Sources */,
 				3A97A84821CA470700ED1ED2 /* Scepter.swift in Sources */,
+				3AEB92FE21F221C500EB875A /* ElementaryOfIce.swift in Sources */,
 				3AE69A1121DF6B7C0097BCD1 /* TeamFactory.swift in Sources */,
+				3AEB930021F2222E00EB875A /* BatOfIce.swift in Sources */,
 				3A97A84E21CA473300ED1ED2 /* Weapon.swift in Sources */,
 				3A97A84A21CA471500ED1ED2 /* Mace.swift in Sources */,
 				3A97A83D21C94D2C00ED1ED2 /* Dwarf.swift in Sources */,
@@ -235,7 +236,6 @@
 				3A97A86F21CCE6B000ED1ED2 /* Team.swift in Sources */,
 				3A97A83721C94C3500ED1ED2 /* Character.swift in Sources */,
 				3A97A84C21CA472000ED1ED2 /* Axe.swift in Sources */,
-				3AE2022B21D62D930025D042 /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

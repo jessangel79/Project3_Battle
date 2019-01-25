@@ -10,8 +10,8 @@ import Foundation
 
 class Weapon {
   //MARK: - Vars
-  let damage: Int
-  let heal: Int
+  var damage: Int
+  var heal: Int
   let nameWeapon: String
   
   //MARK: - Init

@@ -8,8 +8,10 @@
 
 import Foundation
 
-class Dwarf: Character {
+class Dwarf: Character { // type attack
+  
+  //MARK: - Init
   init(name: String) {
-    super.init(type: "Dwarf", life: 30, weapon: Axe.init(), name: name)
-  } // life: 80
+    super.init(type: "Dwarf", life: 80, weapon: Axe.init(), name: name, isBlocked: false)
+  }
 }

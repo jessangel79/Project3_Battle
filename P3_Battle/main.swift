@@ -8,7 +8,7 @@
 
 import Foundation
 
-let game = Game()
+private let game = Game()
 game.start()
 
 //let team = Team(teamPlayer: 1)
