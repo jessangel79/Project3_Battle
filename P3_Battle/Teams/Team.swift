@@ -20,12 +20,12 @@ class Team {
       let character = characters[i]
       if character.life <= 0 {
         print(" ")
-        print("\(i+1) - The \(character.type) \"\(character.name)\" is dead !")
+        print("\(i+1) - The \(character.type) \"\(character.name)\" is dead ❌ !")
         print(" ")
       } else {
         character.display(index: i+1)
         if character.isBlocked == true {
-          print("@@@@ The \(character.type) \"\(character.name)\" is freezed !!! @@@@")
+          print("@@@@ ⭕️🥶 The \(character.type) \"\(character.name)\" is freezed !!! 🥶⭕️ @@@@")
         }
       }
     }

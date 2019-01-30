@@ -24,15 +24,15 @@ class Wizard: Character { // type heal
         
         character.life += weapon.heal
         
-        print("Your \(character.type) \"\(character.name)\" has recovered \(weapon.heal) points of life by the \(weapon.nameWeapon) of your \(type) \"\(name)\" !")
+        print("⚡️ Your \(character.type) \"\(character.name)\" has recovered \(weapon.heal) points of life by the \(weapon.nameWeapon) of your \(type) \"\(name)\" !⚡️")
         if character.life >= character.lifeMaxLimit {
-          print("He has recovered the totality of his life points.")
+          print("❇️ He has recovered the totality of his life points. ❇️")
         }
       } else {
-        print("Your \(character.type), \"\(character.name)\" is already dead and cannot be resurrected !")
+        print("❌ Your \(character.type), \"\(character.name)\" is already dead and cannot be resurrected !")
       }
     } else {
-      print("Sorry your \(type) \"\(name)\" is already dead and you cannot heal !")
+      print("❌ Sorry your \(type) \"\(name)\" is already dead and you cannot heal !")
     }
   }
   
@@ -40,12 +40,18 @@ class Wizard: Character { // type heal
   private func dispel(character: Character) {
     if character.isBlocked == true {
       character.isBlocked = false
-      print("Your \(character.type) \"\(character.name)\" as been unfrozen by your \(type) \"\(name)\" !")
+      print("🔮 Your \(character.type) \"\(character.name)\" as been unfrozen by your \(type) \"\(name)\" !")
     }
   }
   
   override func attack(character: Character) {
-    print("The \(type) \"\(name)\" can't attack but only to heal !")
+    print("⛔️ The \(type) \"\(name)\" can't attack but only to heal !")
+  }
+  
+  // display the special power "dispel" to release from a spell
+  override func display(index: Int) {
+    super.display(index: index)
+    print("### 🔮 Dispel : ✨ Power that unlocks a character that has been frozen. ✨###")
   }
 }
 

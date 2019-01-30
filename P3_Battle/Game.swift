@@ -58,15 +58,15 @@ class Game {
   private func welcome() {
     print("")
     print("===========================================================================")
-    print("@@@@@@@@@@@@            Battle of warriors              @@@@@@@@@@@@")
+    print("@@@@@@@@@@@@  🛡 🛡 🛡  ⚔️  Battle of warriors  ⚔️  🛡 🛡 🛡  @@@@@@@@@@@@")
     print("===========================================================================")
     print("What action to do ? - Choose a number between 1 and 5 :")
     print("---------------------------------------------------------------------------")
-    print("1. New Game : Creation of the teams.")
-    print("2. Show the teams created : statistics and equipment for each character.")
-    print("3. Start the battle ! ")
-    print("4. Show the teams and the winner to the end of game.")
-    print("5. Exit of Game ")
+    print("1. 🆕 New Game : Creation of the teams. ")
+    print("2. 🛡 Show the teams created : statistics and equipment for each character.")
+    print("3. ⚔️ Start the battle ! ")
+    print("4. 🚩 Show the teams and the winner to the end of game.")
+    print("5. ➡︎ Exit of Game ")
     print("===========================================================================")
   }
 
@@ -91,26 +91,26 @@ class Game {
   // The program will then carry out the attack (or heal) and tell the players what just happened.
   private func battle() {
     if arrayTeams.count == 0 {
-      print("Sorry no team was created !")
+      print("⛔️ Sorry no team was created !")
     } else if isBattleIsEnded == true {
       print(" ")
-      print("The game is ended ! Please to select a new game.")
+      print("🚩The game is ended ! Please to select a new game.")
     } else {
-      print("=============================")
-      print("@@@  The battle starts !  @@@")
+      print("==================================")
+      print("@@@ ⚔️ The battle starts ! ⚔️ @@@")
       
       var myCharacter: Character
       
       repeat {
         for nbTeam in 0..<arrayTeams.count {
-            print("=============================")
+            print("==================================")
             print("Turn of player \(nbTeam+1) - Team \(nbTeam+1) :")
-            print("=============================")
+            print("==================================")
             let team = arrayTeams[nbTeam]
             team.displayTeam()
-            print("==================================================")
-            print("Player \(nbTeam+1) : What characters you choose to fight ?")
-            print("--------------------------------------------------")
+            print("====================================================")
+            print("Player \(nbTeam+1) : What characters you choose to fight ? ⚔️")
+            print("----------------------------------------------------")
             myCharacter = arrayTeams[nbTeam].characters[userChoice() - 1]
           
           if myCharacter.life > 0 {
@@ -124,9 +124,9 @@ class Game {
               // check if the character is a wizard
               if let wizard = myCharacter as? Wizard {
                 arrayTeams[nbTeam].displayTeam()
-                print("=============================================")
-                print("Choose a character of your team to heal him :")
-                print("---------------------------------------------")
+                print("===============================================")
+                print("🔮 Choose a character of your team to heal him :")
+                print("-----------------------------------------------")
                 myCharacter = arrayTeams[nbTeam].characters[userChoice() - 1]
                 wizard.heal(character: myCharacter)
               } else {
@@ -146,13 +146,13 @@ class Game {
                 }
               }
             } else { // BONUS : If the character was touched by the "POWER TO FREEZE" of the Elementary Of Ice with 50 % of random.
-            print("The \(myCharacter.type) \"\(myCharacter.name)\" is freezing and blocked for this turn.")
+            print("The \(myCharacter.type) \"\(myCharacter.name)\" is freezed 🥶 and blocked for this turn ↪️")
             myCharacter.isBlocked = false
             }
           } else {
-              print("----------------------------------------------------------------------------")
-              print("Sorry the \(myCharacter.type) \"\(myCharacter.name)\" is already dead and cannot attack !!! ")
-              print("----------------------------------------------------------------------------")
+              print("-------------------------------------------------------------------------------------")
+              print("Sorry the \(myCharacter.type) \"\(myCharacter.name)\" is already dead and cannot attack !!! ❌")
+              print("-------------------------------------------------------------------------------------")
           }
         } // END of loop for in
       } while isBattleIsEnded == false
@@ -161,9 +161,9 @@ class Game {
   
   // Choose the character of a team to attack the enemy of the other team
   private func fightAttack(myCharacter: Character, myTeamEnemy: Team, nbTeam: Int) {
-    print("=====================================================")
-    print("Choose a character from the opposing team to attack :")
-    print("-----------------------------------------------------")
+    print("========================================================")
+    print("🗡 Choose a character from the opposing team to attack :")
+    print("--------------------------------------------------------")
     
     switch nbTeam {
     case 0:
@@ -197,9 +197,9 @@ class Game {
     for i in 0..<arrayTeams.count {
       let team = arrayTeams[i]
       if team.isDead() == false {
-        print("-----------------------------------------------------")
-        print("@@@   Player \(i+1) - Team \(i+1) : You win !!!   @@@")
-        print("-----------------------------------------------------")
+        print("-------------------------------------------------------")
+        print("@@@  🏆 Player \(i+1) - Team \(i+1) : You win !!! 🏆  @@@")
+        print("-------------------------------------------------------")
       }
     }
   }
@@ -207,13 +207,13 @@ class Game {
   // display the teams and the winner at the end of the game
   private func resumeGame() {
     if arrayTeams.count == 0 {
-      print("Thanks select \"New Game\" ")
+      print("Thanks select 🆕 \"New Game\" ")
     } else if arrayTeams.count != 0 && isBattleIsEnded == false {
-      print("No winner because the game did not start - Thanks select \"Start the battle\" ")
+      print("💬 No winner because the game did not start - Thanks select ⚔️ \"Start the battle\" ")
     } else {
-      print("=========================================")
-      print("@@@@@@@@       END OF GAME       @@@@@@@@")
-      print("-----------------------------------------")
+      print("================================================")
+      print("@@@@@@@@ 🏆 ⚔️ 🛡 END OF GAME 🛡 ⚔️ 🏆 @@@@@@@@")
+      print("------------------------------------------------")
       listTeams() // display teams at the end of the game
       displayWinner()
     }
@@ -234,10 +234,10 @@ class Game {
   private func exitGame() {
     var userExit = 0
     if arrayTeams.count == 0 || isBattleIsEnded == true {
-      print("Exit of game")
+      print(" ➡︎ Exit of game")
       endlessLoop = false
     } else if arrayTeams.count != 0 || isBattleIsEnded == false  {
-      print("Alert your teams have been created !")
+      print("⚠️ Alert your teams have been created !")
       print("Do you really want to quit the game ?")
       print("1 - Yes")
       print("2 - No")
@@ -251,10 +251,10 @@ class Game {
     
       switch userExit {
       case 1:
-        print("Exit of game")
+        print(" ➡︎ Exit of game")
         endlessLoop = false
       case 2:
-        print("Continue the game")
+        print("🔄 Continue the game")
         endlessLoop = true
       default:
         break

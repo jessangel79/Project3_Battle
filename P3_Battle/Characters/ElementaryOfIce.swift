@@ -12,7 +12,7 @@ class ElementaryOfIce: Character {
   
   //MARK: - Init
   init(name: String) {
-    super.init(type: "Elementary Of Ice", life: 90, weapon: BatOfIce.init(), name: name, isBlocked: false)
+    super.init(type: "Elementary Of Ice", life: 80, weapon: BatOfIce.init(), name: name, isBlocked: false)
   }
   
   
@@ -21,7 +21,7 @@ class ElementaryOfIce: Character {
   override func attack(character: Character) { // type attack + one special power
     super.attack(character: character)
     if character.life > 0 {
-      print("POWER TO FREEZE :")
+      print("🥶 POWER TO FREEZE 🥶 :")
       let randomNumber = Int.random(in: 0 ... 100)
       if randomNumber <= 50 { // with 50 % of random.
         
@@ -44,7 +44,7 @@ class ElementaryOfIce: Character {
         }
       } else { // BONUS - POWER TO FREEZE : If the character was touched by the "Power of freeze" of the Elementary Of Ice with 50 % of random.
         character.isBlocked = true
-        print("The \(character.type) \"\(character.name)\" has been frozen and will be blocked the next time he plays.")
+        print("The \(character.type) \"\(character.name)\" has been frozen 🥶 and will be blocked the next time he plays.")
       }
     }
   }
@@ -52,18 +52,18 @@ class ElementaryOfIce: Character {
   // display the bonus to the POWER TO FREEZE
   override func display(index: Int) {
     super.display(index: index)
-    print("### POWER TO FREEZE : Randomly, inflict 5 points in less damage or healing for all weapons with more than 5 damage or healing points --- or freeze the enemy and will be blocked the next time he plays. ###")
+    print("### 🥶 POWER TO FREEZE : Randomly, inflict 5 points in less damage or healing for all weapons with more than 5 damage or healing points --- or freeze the enemy and will be blocked the next time he plays. ###")
   }
   
   // display if the character is of type attack
   private func displayWeaponDamaged(character: Character, typeCharacter: String) {
-    print("The \(character.weapon.nameWeapon) of the \(character.type) \"\(character.name)\" has been damaged by the \(type) \"\(name)\" and and loses 5 points of \(typeCharacter) !")
+    print("💢 The \(character.weapon.nameWeapon) of the \(character.type) \"\(character.name)\" has been damaged by the \(type) \"\(name)\" and and loses 5 points of \(typeCharacter) !")
     print("---------------------------------------------------------------------------------------------------------")
   }
   
   // display if the character is of type heal
   private func displayWeaponNoEffect(character: Character, typeCharacter: String) {
-    print("No effect : The \(character.weapon.nameWeapon) of the \(character.type) \"\(character.name)\" has only 5 points of \(typeCharacter) left and can't lose more.")
+    print("🚫 No effect : The \(character.weapon.nameWeapon) of the \(character.type) \"\(character.name)\" has only 5 points of \(typeCharacter) left and can't lose more.")
     print("--------------------------------------------------------------------------------------------------------")
   }
   

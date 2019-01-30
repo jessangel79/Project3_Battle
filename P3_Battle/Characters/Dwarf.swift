@@ -12,6 +12,6 @@ class Dwarf: Character { // type attack
   
   //MARK: - Init
   init(name: String) {
-    super.init(type: "Dwarf", life: 80, weapon: Axe.init(), name: name, isBlocked: false)
+    super.init(type: "Dwarf", life: 60, weapon: Axe.init(), name: name, isBlocked: false)
   }
 }

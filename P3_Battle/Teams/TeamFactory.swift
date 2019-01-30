@@ -17,15 +17,15 @@ class TeamFactory {
   // MARK: - Methodes
   private func listCharactersMenu() {
     print("")
-    print("======================================================================")
-    print("Create your team - Choose 3 characters between 1 and 4 : ")
-    print("----------------------------------------------------------------------")
+    print("=======================================================================")
+    print("🛡 Create your team - Choose 3 characters between 1 and 4 : 🛡")
+    print("-----------------------------------------------------------------------")
     print("1 - Fighter ------------- Life: 100 --- Damage: 10 "
-      + "\n2 - Wizard  ------------- Life: 70  --- Heal: 20 + Dispel "
+      + "\n2 - Wizard  ------------- Life: 70  --- Heal: 20 + Dispel 🔮"
       + "\n3 - Giant   ------------- Life: 120 --- Damage: 5 "
-      + "\n4 - Dwarf   ------------- Life: 80  --- Damage: 25 "
-      + "\n5 - Elementary Of Ice --- Life: 90  --- Damage: 15 + Power to freeze "
-      + "\n=====================================================================")
+      + "\n4 - Dwarf   ------------- Life: 60  --- Damage: 25 "
+      + "\n5 - Elementary Of Ice --- Life: 80  --- Damage: 15 + Power to freeze 🥶"
+      + "\n=======================================================================")
   }
   
   // function to choice a character
@@ -91,11 +91,11 @@ class TeamFactory {
   func createTeams() {
     var numberOfTeams = 0
     print("")
-    print("============================")
-    print("@@@@    New Game !!!    @@@@")
-    print("----------------------------")
+    print("==============================")
+    print("@@@@  🆕 New Game !!! 🆕  @@@@")
+    print("------------------------------")
     print("Enter the number of teams : ")
-    print("============================")
+    print("==============================")
     repeat {
       if let data = readLine() {
         if let dataToInt = Int(data) {
@@ -136,7 +136,7 @@ class TeamFactory {
       if let data = readLine() {
         characterName = data
         if checkName.contains(characterName) {
-          print("The name: '\(characterName)' already exists !")
+          print("⚠️ The name: '\(characterName)' already exists !")
           print("Please enter a new name.")
           characterName = ""
         } else {
