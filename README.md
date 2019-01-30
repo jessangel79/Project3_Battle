@@ -35,8 +35,7 @@ To unlock the "frozen" character, there are two solutions:
 1. Choose the character one turn and the next turn he can play again.
 2. Use a "wizard" which, in addition to adding health points, has a "dispel" function that allows you to unlock the characters.
 
-### Résumé des caractéristiques des personnages, leurs armes et pouvoirs spéciaux : 
-### Summary of the characteristics of the characters, their weapons and special powers : 
+### Résumé des caractéristiques des personnages, leurs armes et pouvoirs spéciaux / Summary of the characteristics of the characters, their weapons and special powers : 
 
 * Fighter : 
 	Points of life : 100
