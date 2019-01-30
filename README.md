@@ -1,4 +1,4 @@
-# Project3_Battle
+# Project 3 : Battle Of Warriors
 
 In this project we will create a game where two teams will face each other in a fight to death!
 "Battle" is a terminal game without interface.
