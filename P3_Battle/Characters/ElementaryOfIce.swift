@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ElementaryOfIce: Character {
+class ElementaryOfIce: Character { // type attack
   
   //MARK: - Init
   init(name: String) {
@@ -18,33 +18,37 @@ class ElementaryOfIce: Character {
   
   //MARK: - Methodes
   //BONUS - POWER TO FREEZE : Randomly, inflict 5 points in less damage or healing for all weapons with more than 5 damage or healing points OR freeze a character of the enemy team and will be blocked in the next round.
-  override func attack(character: Character) { // type attack + one special power
+  override func attack(character: Character) { // attack + one special power
     super.attack(character: character)
     if character.life > 0 {
       print("🥶 POWER TO FREEZE 🥶 :")
       let randomNumber = Int.random(in: 0 ... 100)
-      if randomNumber <= 50 { // with 50 % of random.
-        
-        if character.weapon is Scepter || character.weapon is StaffOfNordrassil || character.weapon is MoonLightGreatSword || character.weapon is StaffOfFire {
-          let typeHealing = "healing"
-          if character.weapon.heal > 5 {
-            character.weapon.heal -= 5
-            displayWeaponDamaged(character: character, typeCharacter: typeHealing)
-          } else {
-            displayWeaponNoEffect(character: character, typeCharacter: typeHealing)
-          }
-        } else {
-          let typeDamaged = "damage"
-          if character.weapon.damage > 5 {
-            character.weapon.damage -= 5
-            displayWeaponDamaged(character: character, typeCharacter: typeDamaged)
-          } else {
-            displayWeaponNoEffect(character: character, typeCharacter: typeDamaged)
-          }
-        }
-      } else { // BONUS - POWER TO FREEZE : If the character was touched by the "Power of freeze" of the Elementary Of Ice with 50 % of random.
+      if randomNumber <= 50 { // with 50 % of random
+        damagedWeapon(character: character)
+      } else { // freeze a character of the enemy team and will be blocked in the next round
         character.isBlocked = true
         print("The \(character.type) \"\(character.name)\" has been frozen 🥶 and will be blocked the next time he plays.")
+      }
+    }
+  }
+  
+  // inflict 5 points in less damage or healing for all weapons with more than 5 damage or healing points
+  private func damagedWeapon(character: Character) {
+    if character.weapon is Scepter || character.weapon is StaffOfNordrassil || character.weapon is MoonLightGreatSword || character.weapon is StaffOfFire {
+      let typeHealing = "healing"
+      if character.weapon.heal > 5 {
+        character.weapon.heal -= 5
+        displayWeaponDamaged(character: character, typeCharacter: typeHealing)
+      } else {
+        displayWeaponNoEffect(character: character, typeCharacter: typeHealing)
+      }
+    } else {
+      let typeDamaged = "damage"
+      if character.weapon.damage > 5 {
+        character.weapon.damage -= 5
+        displayWeaponDamaged(character: character, typeCharacter: typeDamaged)
+      } else {
+        displayWeaponNoEffect(character: character, typeCharacter: typeDamaged)
       }
     }
   }

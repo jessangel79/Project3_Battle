@@ -13,7 +13,7 @@ class Game {
   //MARK: - Vars
   private var arrayTeams = [Team]() // array of the teams with the arrays of 3 the characters
   
-  private var endlessLoop = true // let si false
+  private var endlessLoop = true
   private var isBattleIsEnded = false
 
   //MARK: - Methodes
@@ -76,11 +76,11 @@ class Game {
       print("Sorry no team was created !")
     } else {
       for i in 0..<arrayTeams.count {
-          print("====================")
-          print("List of the team \(i+1) :")
-          print("--------------------")
-          let team = arrayTeams[i]
-          team.displayTeam()
+        print("====================")
+        print("List of the team \(i+1) :")
+        print("--------------------")
+        let team = arrayTeams[i]
+        team.displayTeam()
       }
     }
   }
@@ -103,24 +103,22 @@ class Game {
       
       repeat {
         for nbTeam in 0..<arrayTeams.count {
-            print("==================================")
-            print("Turn of player \(nbTeam+1) - Team \(nbTeam+1) :")
-            print("==================================")
-            let team = arrayTeams[nbTeam]
-            team.displayTeam()
-            print("====================================================")
-            print("Player \(nbTeam+1) : What characters you choose to fight ? ⚔️")
-            print("----------------------------------------------------")
-            myCharacter = arrayTeams[nbTeam].characters[userChoice() - 1]
+          print("==================================")
+          print("Turn of player \(nbTeam+1) - Team \(nbTeam+1) :")
+          print("==================================")
+          let team = arrayTeams[nbTeam]
+          team.displayTeam()
+          print("====================================================")
+          print("Player \(nbTeam+1) : What characters you choose to fight ? ⚔️")
+          print("----------------------------------------------------")
+          myCharacter = arrayTeams[nbTeam].characters[userChoice() - 1]
           
           if myCharacter.life > 0 {
-            
             // a chest appears randomly in front of the character and a new weapon appears
             let randomChest = Chest()
             randomChest.randomChest(character: myCharacter)
             
             if myCharacter.isBlocked == false {
-              
               // check if the character is a wizard
               if let wizard = myCharacter as? Wizard {
                 arrayTeams[nbTeam].displayTeam()
@@ -146,13 +144,13 @@ class Game {
                 }
               }
             } else { // BONUS : If the character was touched by the "POWER TO FREEZE" of the Elementary Of Ice with 50 % of random.
-            print("The \(myCharacter.type) \"\(myCharacter.name)\" is freezed 🥶 and blocked for this turn ↪️")
-            myCharacter.isBlocked = false
+              print("The \(myCharacter.type) \"\(myCharacter.name)\" is freezed 🥶 and blocked for this turn ↪️")
+              myCharacter.isBlocked = false
             }
           } else {
-              print("-------------------------------------------------------------------------------------")
-              print("Sorry the \(myCharacter.type) \"\(myCharacter.name)\" is already dead and cannot attack !!! ❌")
-              print("-------------------------------------------------------------------------------------")
+            print("-------------------------------------------------------------------------------------")
+            print("Sorry the \(myCharacter.type) \"\(myCharacter.name)\" is already dead and cannot attack !!! ❌")
+            print("-------------------------------------------------------------------------------------")
           }
         } // END of loop for in
       } while isBattleIsEnded == false

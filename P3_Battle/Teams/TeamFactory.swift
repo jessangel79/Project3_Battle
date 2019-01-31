@@ -80,12 +80,11 @@ class TeamFactory {
   
   // Create a team
   private func createTeam() -> Team? {
-    
     let team = Team()
     guard let characters = createCharacters() else { return nil }
     team.characters = characters // import array 'characters' of class Team
     return team
-    }
+  }
   
   // Create several teams
   func createTeams() {

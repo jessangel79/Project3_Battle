@@ -31,7 +31,7 @@ class Character {
   //MARK: - Methodes
   private func receive(damage: Int) {
     self.life -= damage
-    // If life is negative, we simply put it to 0 to say that the character is dead
+    // If life is negative, the life of the character is set to 0
     if self.life <= 0 {
       self.life = 0
     }

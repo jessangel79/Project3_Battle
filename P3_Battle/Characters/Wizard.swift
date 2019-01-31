@@ -25,7 +25,8 @@ class Wizard: Character { // type heal
         character.life += weapon.heal
         
         print("⚡️ Your \(character.type) \"\(character.name)\" has recovered \(weapon.heal) points of life by the \(weapon.nameWeapon) of your \(type) \"\(name)\" !⚡️")
-        if character.life >= character.lifeMaxLimit {
+        if character.life >= character.lifeMaxLimit { // after a healing the character can't have more points of life than to the start
+          character.life = character.lifeMaxLimit
           print("❇️ He has recovered the totality of his life points. ❇️")
         }
       } else {
