@@ -1,8 +1,9 @@
 # Project 3 : Battle Of Warriors
 
-In this project we will create a game where two teams will face each other in a fight to death!
-"Battle" is a terminal game without interface.
-==
+### In this project we will create a game where two teams will face each other in a fight to death! "Battle" is a terminal game without interface.
+
+---
+
 **Rules of the game !**
 -
 	*This game is played with 2 or more players, each player will choose 3 characters for their team.*
@@ -16,9 +17,10 @@ In this project we will create a game where two teams will face each other in a 
 
 ------------------------------
 
-Dans ce projet nous allons créer un jeu où deux équipes vont s'affronter dans un combat à mort !
-"Battle" est un jeu terminal sans interface.
-==
+### Dans ce projet nous allons créer un jeu où deux équipes vont s'affronter dans un combat à mort ! "Battle" est un jeu terminal sans interface.
+
+---
+
 **Règles du jeu !**
 -
 	*Ce jeu se joue à 2 joueurs ou plus, chaque joueur choisira 3 personnages pour son équipe.*
