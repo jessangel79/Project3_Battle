@@ -2,12 +2,33 @@
 
 In this project we will create a game where two teams will face each other in a fight to death!
 "Battle" is a terminal game without interface.
+==
+**Rules of the game !**
+-
+	*This game is played with 2 or more players, each player will choose 3 characters for their team.*
+	*These teams will then face each other in a battle to the death.*
+-
+	*Each player must kill all opposing team characters to win the game.*
+-
+	**When you start the game, player 1 will create his team and then it will be the turn of player 2 to create his own.**
+-
+	**A chest containing weapons will appear randomly during the game.**
 
 ------------------------------
 
 Dans ce projet nous allons créer un jeu où deux équipes vont s'affronter dans un combat à mort !
 "Battle" est un jeu terminal sans interface.
-
+==
+**Règles du jeu !**
+-
+	*Ce jeu se joue à 2 joueurs ou plus, chaque joueur choisira 3 personnages pour son équipe.*
+	*Ces équipes vont ensuite s’affronter dans un combat à mort.*
+-
+	*Chaque joueur doit tuer tous les personnages de l’équipe adverse pour gagner la partie.*
+-
+	**Lorsque vous commencerez le jeu, le joueur 1 créera son équipe et ensuite ce sera le tour du joueur 2 de créer la sienne.**
+-
+	**Un coffre contenant des armes apparaitra aléatoirement au cours de la partie.**
 
 ## Bonus :
 
@@ -37,53 +58,48 @@ To unlock the "frozen" character, there are two solutions:
 
 ### Résumé des caractéristiques des personnages, leurs armes et pouvoirs spéciaux / Summary of the characteristics of the characters, their weapons and special powers : 
 
-* Fighter : 
-	Points of life : 100
-	Weapon : Sword
-	Damage : 10
-	Weapons available in the chest :
-	- Sword Of Anduril / Damage : 60
-	- Devil's Hammer / Damage : 50
-	- Solar Sword / Damage : 40
-	- Sword Fish Curved / Damage : 35
+**- Fighter :**
+- Points of life : **100**
+- Weapon : Sword / Damage : **10**
+- **Weapons available in the chest :**
+	- Sword Of Anduril / Damage : **60**
+	- Devil's Hammer / Damage : **50**
+	- Solar Sword / Damage : **40**
+	- Sword Fish Curved / Damage : **35**
 	
-* Giant :
-	Points of life : 120
-	Weapon : Mace
-	Damage : 5
-	Weapons available in the chest :
-	- Sword Of Anduril / Damage : 60
-	- Devil's Hammer / Damage : 50
-	- Solar Sword / Damage : 40
-	- Sword Fish Curved / Damage : 35
+**- Giant :**
+- Points of life : **120**
+- Weapon : Mace / Damage : **5**
+- **Weapons available in the chest :**
+	- Sword Of Anduril / Damage : **60**
+	- Devil's Hammer / Damage : **50**
+	- Solar Sword / Damage : **40**
+	- Sword Fish Curved / Damage : **35**
 	
-* Dwarf :
-	Points of life : 60
-	Weapon : Axe
-	Damage : 25
-	Weapons available in the chest :
-	- Sword Of Anduril / Damage : 60
-	- Devil's Hammer / Damage : 50
-	- Solar Sword / Damage : 40
-	- Sword Fish Curved / Damage : 35
+**- Dwarf :**
+- Points of life : **60**
+- Weapon : Axe / Damage : **25**
+- **Weapons available in the chest :**
+	- Sword Of Anduril / Damage : **60**
+	- Devil's Hammer / Damage : **50**
+	- Solar Sword / Damage : **40**
+	- Sword Fish Curved / Damage : **35**
 	
-* Elementary Of Ice :
-	Points of life : 80
-	Weapon : Bat Of Ice
-	Damage : 15
-	Special power : Power to freeze
-	Weapons available in the chest :
-	- Sword Of Anduril / Damage : 60
-	- Devil's Hammer / Damage : 50
-	- Solar Sword / Damage : 40
-	- Sword Fish Curved / Damage : 35
+**- Elementary Of Ice :**
+- Points of life : **80**
+- Weapon : Bat Of Ice / Damage : **15**
+- *Special power* : **Power to freeze**
+- **Weapons available in the chest :**
+	- Sword Of Anduril / Damage : **60**
+	- Devil's Hammer / Damage : **50**
+	- Solar Sword / Damage : **40**
+	- Sword Fish Curved / Damage : **35**
 	
-* Wizard :
-	Points of life : 70
-	Weapon : Scepter
-	Heal : 25
-	Special power :  Dispel
-	Weapons available in the chest :
-	- Staff Of Nordrassil / Heal : 50
-	- Moon Light Great Sword / Heal : 40
-	- Staff Of Fire / Heal : 30
+**- Wizard :**
+- Points of life : **70**
+- Weapon : Scepter / Heal : **25**
+- *Special power* : **Dispel**
+- **Weapons available in the chest :**
+	- Staff Of Nordrassil / Heal : **50**
+	- Moon Light Great Sword / Heal : **40**
+	- Staff Of Fire / Heal : **30**
