@@ -14,22 +14,20 @@ class Chest {
   func randomChest(character: Character) {
     let randomNumber = Int.random(in: 0 ... 100)
     if randomNumber <= 20 {
-      let arrayHealWeapon = [StaffOfNordrassil.init(), MoonLightGreatSword.init(), StaffOfFire.init()]
-      let arrayDamageWeapon = [SwordOfAnduril.init(), DevilsHammer.init(), SolarSword.init(), SwordFishCurved.init()]
+      let arrayWeaponHeal = [StaffOfNordrassil.init(), MoonLightGreatSword.init(), StaffOfFire.init()]
+      let arrayWeaponDamage = [SwordOfAnduril.init(), DevilsHammer.init(), SolarSword.init(), SwordFishCurved.init()]
       
-      let randomWeaponHeal = arrayHealWeapon.randomElement()
-      let randomWeaponDamage = arrayDamageWeapon.randomElement()
+      let randomWeaponHeal = arrayWeaponHeal.randomElement()
+      let randomWeaponDamage = arrayWeaponDamage.randomElement()
       
       if character is Wizard {
         let typeCharacter = "healing"
-//        let newWeapon = randomWeaponHeal
         guard let randomWeaponHeal = randomWeaponHeal else { return }
         character.weapon = randomWeaponHeal
         let typeWeapon = character.weapon.heal
         displayChest(character: character, typeCharacter: typeCharacter, typeWeapon: typeWeapon)
       } else {
         let typeCharacter = "damage"
-//        let newWeapon = randomWeaponDamage
         guard let randomWeaponDamage = randomWeaponDamage else { return }
         character.weapon = randomWeaponDamage
         let typeWeapon = character.weapon.damage

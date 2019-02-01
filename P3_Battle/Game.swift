@@ -96,21 +96,12 @@ class Game {
       print(" ")
       print("🚩The game is ended ! Please to select a new game.")
     } else {
-      print("==================================")
-      print("@@@ ⚔️ The battle starts ! ⚔️ @@@")
+      displayStartBattle() // display the start menu of the battle
       
       var myCharacter: Character
-      
       repeat {
         for nbTeam in 0..<arrayTeams.count {
-          print("==================================")
-          print("Turn of player \(nbTeam+1) - Team \(nbTeam+1) :")
-          print("==================================")
-          let team = arrayTeams[nbTeam]
-          team.displayTeam()
-          print("====================================================")
-          print("Player \(nbTeam+1) : What characters you choose to fight ? ⚔️")
-          print("----------------------------------------------------")
+          choiceMyCharacter(nbTeam: nbTeam) // Choose a character of the team to attack the enemy of the other team
           myCharacter = arrayTeams[nbTeam].characters[userChoice() - 1]
           
           if myCharacter.life > 0 {
@@ -119,14 +110,8 @@ class Game {
             randomChest.randomChest(character: myCharacter)
             
             if myCharacter.isBlocked == false {
-              // check if the character is a wizard
-              if let wizard = myCharacter as? Wizard {
-                arrayTeams[nbTeam].displayTeam()
-                print("===============================================")
-                print("🔮 Choose a character of your team to heal him :")
-                print("-----------------------------------------------")
-                myCharacter = arrayTeams[nbTeam].characters[userChoice() - 1]
-                wizard.heal(character: myCharacter)
+              if let wizard = myCharacter as? Wizard { // check if the character is a wizard
+                wizardHeal(wizard: wizard, nbTeam: nbTeam)
               } else {
                 // attack enemy
                 if nbTeam == 0 {
@@ -143,21 +128,34 @@ class Game {
                   }
                 }
               }
-            } else { // BONUS : If the character was touched by the "POWER TO FREEZE" of the Elementary Of Ice with 50 % of random.
-              print("The \(myCharacter.type) \"\(myCharacter.name)\" is freezed 🥶 and blocked for this turn ↪️")
-              myCharacter.isBlocked = false
+            } else {
+              characterIsBLocked(myCharacter: myCharacter) // display that a character is bLocked and unlocked him
             }
           } else {
-            print("-------------------------------------------------------------------------------------")
-            print("Sorry the \(myCharacter.type) \"\(myCharacter.name)\" is already dead and cannot attack !!! ❌")
-            print("-------------------------------------------------------------------------------------")
+            displayCharacterIsDead(myCharacter: myCharacter) // display that the chosen character is already dead
           }
         } // END of loop for in
       } while isBattleIsEnded == false
     }
   }
   
-  // Choose the character of a team to attack the enemy of the other team
+  // display the start menu of the battle
+  private func displayStartBattle() {
+    print("==================================")
+    print("@@@ ⚔️ The battle starts ! ⚔️ @@@")
+  }
+  
+  // Choose a character of the team to heal him
+  private func wizardHeal(wizard: Wizard, nbTeam: Int) {
+    arrayTeams[nbTeam].displayTeam()
+    print("===============================================")
+    print("🔮 Choose a character of your team to heal him :")
+    print("-----------------------------------------------")
+    let myCharacter = arrayTeams[nbTeam].characters[userChoice() - 1]
+    wizard.heal(character: myCharacter)
+  }
+  
+  // Choose a character enemy of the other team to attack
   private func fightAttack(myCharacter: Character, myTeamEnemy: Team, nbTeam: Int) {
     print("========================================================")
     print("🗡 Choose a character from the opposing team to attack :")
@@ -177,7 +175,19 @@ class Game {
     }
   }
   
-  // Allows the user to choose a character of the team between 1 and 3
+  // Choose a character of the team to attack the enemy of the other team
+  private func choiceMyCharacter(nbTeam: Int) {
+    print("==================================")
+    print("Turn of player \(nbTeam+1) - Team \(nbTeam+1) :")
+    print("==================================")
+    let team = arrayTeams[nbTeam]
+    team.displayTeam()
+    print("====================================================")
+    print("Player \(nbTeam+1) : What characters you choose to fight ? ⚔️")
+    print("----------------------------------------------------")
+  }
+  
+  // allows the user to choose a character of the team between 1 and 3
   private func userChoice() -> Int {
     var characterChoice = 0
     repeat {
@@ -188,6 +198,19 @@ class Game {
       }
     } while characterChoice != 1 && characterChoice != 2 && characterChoice != 3
     return characterChoice
+  }
+  
+  // display that a character is bLocked and unlocked him
+  private func characterIsBLocked(myCharacter: Character) {
+    print("The \(myCharacter.type) \"\(myCharacter.name)\" is freezed 🥶 and blocked for this turn ↪️")
+    myCharacter.isBlocked = false
+  }
+  
+  // display that the chosen character is already dead and can no longer attack
+  private func displayCharacterIsDead(myCharacter: Character) {
+    print("-------------------------------------------------------------------------------------")
+    print("Sorry the \(myCharacter.type) \"\(myCharacter.name)\" is already dead and cannot attack !!! ❌")
+    print("-------------------------------------------------------------------------------------")
   }
   
   // check and display the winner
