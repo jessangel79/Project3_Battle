@@ -37,6 +37,7 @@ class Character {
     }
   }
   
+  // attack enemy
   func attack(character: Character) {
     if life > 0 {
       if character.life > 0 {
@@ -45,7 +46,7 @@ class Character {
         print("🛡 The \(character.type) \"\(character.name)\" received \(weapon.damage) points of damage by the \(weapon.nameWeapon) of your \(type) \"\(name)\" ! 🛡")
         print("-----------------------------------------------------------------------------------------------------")
         if character.life <= 0 {
-           print("❌ The \(character.type) \"\(character.name)\" is dead !!! ❌")
+          print("❌ The \(character.type) \"\(character.name)\" is dead !!! ❌")
         }
       } else {
         print("--------------------------------------------------------")
@@ -57,7 +58,6 @@ class Character {
       print("Sorry the \(type) \"\(name)\" is already dead and cannot attack the \(character.type) \"\(character.name)\" ! ❌")
       print("---------------------------------------------------------------------------------------")
     }
-    
   }
   
   // Display the description of our character on the screen

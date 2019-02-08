@@ -12,12 +12,10 @@ class Game {
   
   //MARK: - Vars
   private var arrayTeams = [Team]() // array of the teams with the arrays of 3 the characters
-  
   private var endlessLoop = true
-  private var isBattleIsEnded = false
+  private var battleIsEnded = false
 
   //MARK: - Methodes
-  
   // function for start game
   func start() {
     var userChoice = 0
@@ -32,9 +30,9 @@ class Game {
       } while userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4 && userChoice != 5
       
       switch userChoice {
-      case 1: // New game with reset of varible and creation of the teams
+      case 1: // New game with reset of variables and creation of the teams
         endlessLoop = true
-        isBattleIsEnded = false
+        battleIsEnded = false
         let teamFactory = TeamFactory()
         teamFactory.createTeams()
         arrayTeams = teamFactory.arrayTeams // import arrayTeams of class TeamFactory
@@ -92,7 +90,7 @@ class Game {
   private func battle() {
     if arrayTeams.count == 0 {
       print("⛔️ Sorry no team was created !")
-    } else if isBattleIsEnded == true {
+    } else if battleIsEnded == true {
       print(" ")
       print("🚩The game is ended ! Please to select a new game.")
     } else {
@@ -135,7 +133,7 @@ class Game {
             displayCharacterIsDead(myCharacter: myCharacter) // display that the chosen character is already dead
           }
         } // END of loop for in
-      } while isBattleIsEnded == false
+      } while battleIsEnded == false
     }
   }
   
@@ -229,7 +227,7 @@ class Game {
   private func resumeGame() {
     if arrayTeams.count == 0 {
       print("Thanks select 🆕 \"New Game\" ")
-    } else if arrayTeams.count != 0 && isBattleIsEnded == false {
+    } else if arrayTeams.count != 0 && battleIsEnded == false {
       print("💬 No winner because the game did not start - Thanks select ⚔️ \"Start the battle\" ")
     } else {
       print("================================================")
@@ -245,7 +243,7 @@ class Game {
     for i in 0..<arrayTeams.count {
       let team = arrayTeams[i]
       if team.isDead() == true && arrayTeams.count != 0 {
-        isBattleIsEnded = true
+        battleIsEnded = true
       }
     }
     resumeGame() // display the teams and the winner at the end of the game
@@ -254,10 +252,10 @@ class Game {
   // check if the team have been created and the user can choose to continue or no
   private func exitGame() {
     var userExit = 0
-    if arrayTeams.count == 0 || isBattleIsEnded == true {
+    if arrayTeams.count == 0 || battleIsEnded == true {
       print(" ➡︎ Exit of game")
       endlessLoop = false
-    } else if arrayTeams.count != 0 || isBattleIsEnded == false  {
+    } else {
       print("⚠️ Alert your teams have been created !")
       print("Do you really want to quit the game ?")
       print("1 - Yes")

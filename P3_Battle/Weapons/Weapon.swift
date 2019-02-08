@@ -20,8 +20,4 @@ class Weapon {
     self.heal = heal
     self.nameWeapon = nameWeapon
   }
-  
-  //MARK: - Methodes
-
-
 }

@@ -70,6 +70,5 @@ class ElementaryOfIce: Character { // type attack
     print("🚫 No effect : The \(character.weapon.nameWeapon) of the \(character.type) \"\(character.name)\" has only 5 points of \(typeCharacter) left and can't lose more.")
     print("--------------------------------------------------------------------------------------------------------")
   }
-  
 } // END class ElementaryOfIce
 

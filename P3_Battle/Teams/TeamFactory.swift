@@ -145,5 +145,4 @@ class TeamFactory {
     } while characterName == ""
     return characterName
   }
-
 } // END class TeamFactory
